@@ -1,0 +1,22 @@
+\begin{task}
+Dopasowanie na moc
+
+\begin{schemat} \draw
+(0,0)  to [Vsrc,l=${E=0.1A}$] (0,2)
+(0,2)  to [R,l=${R_w=2k\Omega}$] (2,2)
+(0,0)  to [short] (2,0)
+node[ocirc] (A) at (2,0) {}
+node[ocirc] (B) at (2,2) {}
+
+(2,0)  to [short] (5,0)
+(2,2)  to [short] (3,2)
+(3,0)  to [R,l=${R_1=3k\Omega}$] (3,2)
+(5,0)  to [R,l=${R_3=?}$] (5,2)
+(3,2)  to [R,l=${R_2=1k\Omega}$] (5,2)
+
+
+;\end{schemat}
+
+%\subsubsection{Rozwiązanie}
+%TBD
+\end{task}

@@ -1,0 +1,28 @@
+\begin{task}
+Wyznacz opór zastępczy widziany z zacisków A i F. R=6$\Omega$
+\begin{schemat}
+\draw
+ node[circ] (A) at ( 0, 0) {$A$}
+ node[circ] (B) at ( 2, 0) {$B$}
+ node[circ] (C) at ( 4, 0) {$C$}
+ node[circ] (D) at ( 6, 0) {$D$}
+ node[circ] (E) at ( 0,-2) {$E$}
+ node[circ] (F) at ( 2,-2) {$F$}
+ node[circ] (G) at ( 4,-2) {$G$}
+ node[circ] (H) at ( 6,-2) {$H$}
+ 
+ (A) to[R,l=$R$] (B) 
+ (B) to[R,l=$R$] (C) 
+ (C) to[R,l=$R$] (D) 
+ (A) to[R,l=$R$] (E) 
+ (B) to[R,l=$R$] (F) 
+ (C) to[R,l=$R$] (G) 
+ (D) to[R,l=$R$] (H) 
+ (E) to[R,l=$R$] (F) 
+ (F) to[R,l=$R$] (G) 
+ (G) to[R,l=$R$] (H) 
+;
+\end{schemat}
+\subsubsection{Rozwiązanie}
+TBD
+\end{task}

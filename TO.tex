@@ -1,0 +1,91 @@
+\documentclass[a4paper,11pt]{LambBook} %6 inch 800x600
+
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{cancel}
+\usepackage{graphicx} 
+\usepackage{array}
+\usepackage{float} %Wymuszenie wstawienia obrazka w miejscu wstawienia
+%\usepackage[europeancurrents, europeanvoltages, europeanresistors, americaninductors, europeanports]{circuitikz} %Do rysowania obwodów elektrycznych
+\usepackage[americancurrents, americanvoltages, europeanresistors, americaninductors, europeanports]{circuitikz} %Do rysowania obwodów elektrycznych
+\usepackage{polishcircuitikz} %Polskie symbole elementów obwodów (Źródła i inne nasze)
+\usepackage[ISBN=978-83-939620-2-0,SC2]{ean13isbn} %Drukowanie numeru ISBN
+\usepackage{tikz}
+\selectlanguage{polish}
+
+\allowdisplaybreaks
+%https://www.codecogs.com/latex/eqneditor.php
+%http://www.sciweavers.org/free-online-latex-equation-editor
+
+\def\booktitle{Teoria Obwodów w zadaniach}
+\def\bookauthors{Jakub Stankowski, Agnieszka Wardzińska, Krzysztof Wegner}
+
+\usepackage[pdftex,
+        unicode=true, % Aby działały polskie literki
+        colorlinks=true,
+        urlcolor=rltblue,       % \href{...}{...} external (URL)
+        filecolor=rltgreen,     % \href{...} local file
+        linkcolor=rltred,       % \ref{...} and \pageref{...}
+        citecolor=blue,
+        pdfstartview={FitV},
+        pdftitle={\booktitle},
+        pdfauthor={\bookauthors},
+        pdfsubject={Teoria Obwodów},
+        pdfkeywords={Teoria Obwodów, Zadania},
+        pdfproducer={pdfLaTeX},
+        %pdfadjustspacing=1,
+        pagebackref=false, %activate back references inside bibliography. Must be specified as part
+        bookmarksopen=true]{hyperref}
+
+\setcounter{secnumdepth}{2}
+
+%\setdebug
+\setrelease
+%====================================================
+\begin{document}
+%====================================================
+\definecolor{rltred}{rgb}{0.75,0,0} %Definicja kolorów
+\definecolor{rltgreen}{rgb}{0,0.5,0}
+\definecolor{rltblue}{rgb}{0,0,0.75}
+%====================================================
+\title{\booktitle}
+\author{\bookauthors}
+%====================================================
+%Strona Tytułowa
+\label{page:titlepage}
+\input{TitlePage.tex}
+%====================================================
+%Druga Strona z ISBN'em
+\label{page:firstpage}
+\input{FirstPage.tex}
+%====================================================
+\input{01_opor_zastepczy/01_opor_zastepczy.tex}
+\input{02_zrodla/02_zrodla.tex}
+\input{03_prawa_kirchhoffa/03_prawa_kirchhoffa.tex}
+%\input{04_metoda_wezlowa/04_metoda_wezlowa.tex}
+\input{05_metoda_oczkowa/05_metoda_oczkowa.tex}
+\input{06_thevenin_norton/06_thevenin_norton.tex}
+\input{07_moc/07_moc.tex}
+\input{08_superpozycja/08_metoda_superpozycji.tex}
+\input{09_uklady_nieliniowe/09_uklady_nieliniowe.tex}
+\input{10_impedancja_zastepcza/10_impedancja_zastepcza.tex}
+\input{11_metoda_oczkowa_wezlowa_AC/11_metoda_oczkowa_wezlowa_AC.tex}
+\input{12_moc_AC/12_moc_AC.tex}
+
+
+%====================================================
+% Ostatna stona z ISBN'em
+%====================================================
+\label{page:lastpage}
+\input{LastPage.tex}
+%====================================================
+\end{document}
+
+%Tom pierwszy zadania
+%Tom drugi rozwiązania
+
+%TODO

@@ -1,0 +1,22 @@
+\begin{task}
+W układzie dzielnika prądowego pokazanego na rysunku dobrać tak wartość oporu $R_2$, aby przez opór $R_1$ płynął prąd o natężeniu $p\cdot I$
+
+\begin{center}\begin{circuitikz}[european] 
+\ctikzset{voltage/distance from line=0.2} 
+\ctikzset{voltage/european label distance=2.00}  
+%przesynąć etykiety węzłów dalej od węzłów
+\draw
+ (0,0) to[short,i>_=$I$,-*] (1,0) 
+       to[short] (1,-0.5) 
+       to[R,l_=$R_2$] (3,-0.5)
+       to[short,-*] (3,0)
+       to[short,-*] (4,0)       
+ (1,0) to[short] (1,0.5) 
+       to[R,l_=$R_1$] (3,0.5)
+       to[short] (3,0)       
+;
+\end{circuitikz}
+\end{center}
+\subsubsection{Rozwiązanie}
+TBD
+\end{task}

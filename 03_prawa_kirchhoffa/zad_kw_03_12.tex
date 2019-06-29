@@ -1,0 +1,28 @@
+\begin{task}
+Oblicz przesunięcie fazowe pomiędzy natężeniem prądu $\underline{I_1}$ a napięciem $\underline{U_1}$ w poniższym układzie.  
+
+\begin{schemat}
+\label{schemat:03:12:kw:Z}
+\draw
+node[ocirc,label=A] (A) at (2, 4) {}
+node[ocirc,label=below:B] (B) at (2,0) {}
+
+ (0,0) to[R,l=$R_1$] (0,2) 
+       to[Vsrc,l=$e_1(t)$] (0,4)
+       to[short,i>=$\underline{I_1}$] (2,4)
+       to[L,l=$L_1$] (4,4)       
+       to[short] (5,4)
+       to[C,l=$C$] (5,0)
+       to[short] (2,0)
+       to[L,l=$L_2$] (0,0)
+ (4,0) to[R,l=$R_2$] (4,4)
+ (B)   to[open,v^>=$\underline{U_1}$] (A)
+
+;
+\end{schemat}
+
+
+\subsubsection{Rozwiązanie}
+
+TBD
+\end{task}

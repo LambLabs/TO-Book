@@ -1,0 +1,20 @@
+\begin{task}
+Oblicz rozpływ prądów metodą superpozycji. 
+Do obliczeń przyjmij: $E_1=20V$, $J_2=0.1A$, $R_1=10\Omega$, $R_2=40\Omega$, $R_3=50\Omega$, $R_4=20\Omega$.
+
+\begin{schemat} \draw
+(0,0)  to [short] (0,1)
+(4,0)  to [short] (4,1)
+(0,1)  to [R,l=$R_4$] (4,1)
+
+(0,0)  to [R,l=$R_1$] (2,0)
+(2,0)  to [R,l=$R_2$] (4,0)
+(2,-2)  to [R,l=$R_3$] (2,0)
+(0,-2) to [Vsrc,l=$E_1$] (0,0)
+(4,-2) to [Isrc,l=$J_2$] (4,0)
+(0,-2) to [short] (4,-2)
+;\end{schemat}
+
+%\subsubsection{Rozwiązanie}
+%TBD
+\end{task}

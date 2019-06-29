@@ -1,0 +1,29 @@
+\begin{task}
+Oblicz rozpływ prądów metodą prądów oczkowych
+
+\begin{align}
+e_1(t) = 2 sin(2t+\frac{\pi}{2}) \\
+e_2(t) = sin(2t)\\
+e_3(t) =\sqrt{8} sin(2t) \\
+e_4(t) = 2 sin(2t+\frac{\pi}{4}) \\
+L = 1 \henr \\
+C = 1 \farad \\
+R = 1 \ohm \\
+\end{align}
+
+\begin{schemat} \draw
+(0,0)  to [C,l=$C$] (0,2)
+       to [Vsrc,l=$e_1(t)$] (0,4)
+       to [R,l=$R_3$] (2,4)
+       to [Vsrc,l=$e_3(t)$] (4,4)
+       to [C,l=$C$] (4,2)
+       to [Vsrc,l=$e_4(t)$] (4,0)
+       to [R,l=$R$] (2,0)
+       to [L,l=$L$] (0,0)
+(2,0)  to [R,l=$R$] (2,2)
+       to [Vsrc,l=$e_2(t)$] (2,4)
+;\end{schemat}
+
+%\subsubsection{Rozwiązanie}
+%TBD
+\end{task}

@@ -1,0 +1,202 @@
+\begin{task}
+Wyznacz opór zastępczy poniższego układu. Podaj wzór na opór zastępczy oraz jego wartość. Przyjmij że $R=3\Omega$
+\begin{schemat}
+\label{schemat:01:00:kw:Z}
+\draw
+ (0,0) to[R,l_=$R$,o-*] (3,0) 
+ 	   to[short] (3,-1)
+       to[R,l_=$R$,-*] (5,-1)
+       to[R,l_=$R$] (7,-1)
+       to[R,l_=$R$,-*] (9,-1)
+       to[short] (9.5,-1)
+       to[short,-*] (9.5,0)
+       to[short,-o] (10.5,0)
+ (5,-1) to[short] (5,-2)
+ 		to[R,l_=$R$] (9,-2)
+ 		to[short] (9,-1)
+ (3,0) to[short] (3,1)
+       to[R,l_=$R$] (9.5,1) 	
+       to[short] (9.5,0)
+;
+\end{schemat}
+
+\subsubsection{Rozwiązanie}
+Należy zauważyć iż zaznaczone na schemacie \ref{schemat:01:00:kw:A} oporniki połączone są szeregowo.
+\begin{schemat}
+\label{schemat:01:00:kw:A}
+\draw
+ (0,0) to[R,l_=$R$,o-*] (3,0) 
+ 	   to[short] (3,-1)
+       to[R,l_=$R$,-*] (5,-1)
+       to[R,l_=$R$] (7,-1)
+       to[R,l_=$R$,-*] (9,-1)
+       to[short] (9.5,-1)
+       to[short,-*] (9.5,0)
+       to[short,-o] (10.5,0)
+ (5,-1) to[short] (5,-2)
+ 		to[R,l_=$R$] (9,-2)
+ 		to[short] (9,-1)
+ (3,0) to[short] (3,1)
+       to[R,l_=$R$] (9.5,1) 	
+       to[short] (9.5,0)
+;
+\draw[color=red] (7,-1) ellipse (2 and 0.5);
+\end{schemat}
+Oporniki te zastępujemy jednym opornikiem o oporze zastępczym $R_{Z1}$
+\begin{equation*}
+R_{Z1}=R+R=2R
+\end{equation*}
+\begin{schemat}
+\label{schemat:01:00:kw:B}
+\draw
+ (0,0) to[R,l_=$R$,o-*] (3,0) 
+ 	   to[short] (3,-1)
+       to[R,l_=$R$,-*] (5,-1)
+       to[R,l_=$R_{Z1} \equal 2R$,-*] (9,-1)
+       to[short] (9.5,-1)
+       to[short,-*] (9.5,0)
+       to[short,-o] (10.5,0)
+ (5,-1) to[short] (5,-2)
+ 		to[R,l_=$R$] (9,-2)
+ 		to[short] (9,-1)
+ (3,0) to[short] (3,1)
+       to[R,l_=$R$] (9.5,1) 	
+       to[short] (9.5,0)
+;
+\end{schemat}
+Następnie należy zauważyć iż zaznaczone na schemacie \ref{schemat:01:00:kw:C} są połączone równoległe i zastąpić je jednym oporem zastępczym o wartości $R_{Z2}$
+\begin{schemat}
+\label{schemat:01:00:kw:C}
+\draw
+ (0,0) to[R,l_=$R$,o-*] (3,0) 
+ 	   to[short] (3,-1)
+       to[R,l_=$R$,-*] (5,-1)
+       to[R,l_=$R_{Z1} \equal 2R$,-*] (9,-1)
+       to[short] (9.5,-1)
+       to[short,-*] (9.5,0)
+       to[short,-o] (10.5,0)
+ (5,-1) to[short] (5,-2)
+ 		to[R,l_=$R$] (9,-2)
+ 		to[short] (9,-1)
+ (3,0) to[short] (3,1)
+       to[R,l_=$R$] (9.5,1) 	
+       to[short] (9.5,0)
+;
+\draw[color=red] (7,-1.5) ellipse (2 and 1.0);
+\end{schemat}
+\begin{align*}
+\frac{1}{R_{Z2}}&=\frac{1}{R_{Z1}}+\frac{1}{R}\\
+\frac{1}{R_{Z2}}&=\frac{1}{2R}+\frac{1}{R}=\\
+&=\frac{1}{2R}+\frac{2}{2R}=\\
+&=\frac{3}{2R}\\
+R_{Z2}=\frac{2}{3}R
+\end{align*}
+\begin{schemat}
+\label{schemat:01:00:kw:D}
+\draw
+ (0,0) to[R,l_=$R$,o-*] (3,0) 
+ 	   to[short] (3,-1)
+       to[R,l_=$R$] (5,-1)
+       to[short] (5,-1.5) 
+       to[R,l_=$R_{Z2} \equal \frac{2}{3}R$] (9,-1.5)
+       to[short] (9,-1) 
+       to[short] (9.5,-1)
+       to[short,-*] (9.5,0)
+       to[short,-o] (10.5,0)
+ (3,0) to[short] (3,1)
+       to[R,l_=$R$] (9.5,1) 	
+       to[short] (9.5,0)
+;
+\end{schemat}
+Następnie należy zauważyć iż zaznaczone na schemacie \ref{schemat:01:00:kw:E} są połączone szeregowo i zastąpić je jednym oporem zastępczym o wartości $R_{Z3}$
+\begin{schemat}
+\label{schemat:01:00:kw:E}
+\draw
+ (0,0) to[R,l_=$R$,o-*] (3,0) 
+ 	   to[short] (3,-1)
+       to[R,l_=$R$] (5,-1)
+       to[short] (5,-1.5) 
+       to[R,l_=$R_{Z2} \equal \frac{2}{3}R$] (9,-1.5)
+       to[short] (9,-1) 
+       to[short] (9.5,-1)
+       to[short,-*] (9.5,0)
+       to[short,-o] (10.5,0)
+ (3,0) to[short] (3,1)
+       to[R,l_=$R$] (9.5,1) 	
+       to[short] (9.5,0)
+;
+\draw[color=red] (5.5,-1.25) ellipse (2.5 and 1.0);
+\end{schemat}
+\begin{align*}
+R_{Z3}&=\frac{2}{3}R+R\\
+R_{Z3}&=\frac{2}{3}R+\frac{3}{3}R\\
+&=\frac{5}{3}R
+\end{align*}
+\begin{schemat}
+\label{schemat:01:00:kw:F}
+\draw
+ (0,0) to[R,l_=$R$,o-*] (3,0) 
+ 	   to[short] (3,-1)
+       to[R,l_=$R_{Z3} \equal \frac{5}{3}R$] (9.5,-1)
+       to[short,-*] (9.5,0)
+       to[short,-o] (10.5,0)
+ (3,0) to[short] (3,1)
+       to[R,l_=$R$] (9.5,1) 	
+       to[short] (9.5,0)
+;
+\end{schemat}
+Następnie należy zauważyć iż zaznaczone na schemacie \ref{schemat:01:00:kw:G} są połączone równolegle i zastąpić je jednym oporem zastępczym o wartości $R_{Z4}$
+\begin{schemat}
+\label{schemat:01:00:kw:G}
+\draw
+ (0,0) to[R,l_=$R$,o-*] (3,0) 
+ 	   to[short] (3,-1)
+       to[R,l_=$R_{Z3} \equal \frac{5}{3}R$] (9.5,-1)
+       to[short,-*] (9.5,0)
+       to[short,-o] (10.5,0)
+ (3,0) to[short] (3,1)
+       to[R,l_=$R$] (9.5,1) 	
+       to[short] (9.5,0)
+;
+\draw[color=red] (6.25,0.0) ellipse (2.0 and 2.0);
+\end{schemat}
+\begin{align*}
+\frac{1}{R_{Z4}}&=\frac{1}{R}+\frac{1}{R_{Z3}}\\
+\frac{1}{R_{Z4}}&=\frac{1}{R}+\frac{1}{\frac{5}{3}R}=\\
+&=\frac{1}{R}+\frac{3}{5R}=\\
+&=\frac{5}{5R}+\frac{3}{5R}=\\
+&=\frac{8}{5R}\\
+R_{Z4}&=\frac{5}{8}R\\
+\end{align*}
+\begin{schemat}
+\label{schemat:01:00:kw:H}
+\draw
+ (0,0) to[R,l_=$R$,o-] (3,0) 
+       to[R,l_=$R_{Z4} \equal \frac{5}{8}R$] (9.5,0)
+       to[short,-o] (10.5,0)
+;
+\end{schemat}
+Ostatecznie należy zauważyć iż zaznaczone na schemacie \ref{schemat:01:00:kw:I} są połączone szeregowo i zastąpić je jednym oporem zastępczym o wartości $R_{Z5}$
+\begin{schemat}
+\label{schemat:01:00:kw:I}
+\draw
+ (0,0) to[R,l_=$R$,o-] (3,0) 
+       to[R,l_=$R_{Z4} \equal \frac{5}{8}R$] (9.5,0)
+       to[short,-o] (10.5,0)
+;
+\draw[color=red] (3.75,0.0) ellipse (4.0 and 0.5);
+\end{schemat}
+\begin{align*}
+R_{Z5}&=R+R_{Z4}\\
+R_{Z5}&=R+\frac{5}{8}R=\\
+&=\frac{8}{8}R+\frac{5}{8}R=\\
+&=\frac{13}{8}R\\
+\end{align*}
+\begin{schemat}
+\label{schemat:01:00:kw:J}
+\draw
+ (0,0) to[R,l_=$R_{Z5} \equal \frac{13}{8}R$,o-o] (10.5,0) 
+;
+\end{schemat}
+Tak więc opór zastępczy obwodu przedstawionego na schemacie \ref{schemat:01:00:kw:Z} równa się $\frac{13}{8}R$
+\end{task}

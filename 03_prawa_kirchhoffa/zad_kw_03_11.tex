@@ -1,0 +1,37 @@
+\begin{task}
+W układzie przedstawionym poniżej dobierz wartość impedancji $Z_1$ w taki sposób aby ...
+
+\begin{align*}
+e(t)&=2 \cdot sin(2 \cdot t)\volt\\
+j(t)&=2 \cdot sin(2 \cdot t + \frac{\pi}{2})\volt\\
+R_1&=2\ohm\\
+R_2&=1\ohm\\
+L_1&=3\henr\\
+C_1&=0.5\farad
+\end{align*}
+
+
+\begin{schemat}
+\label{schemat:03:11:kw:Z}
+\draw
+ (0,0) to[Vsrc,l=$e_1(t)$] (0,3)
+       to[short] (0,6)
+       to[Vsrc,l=$e_2(t)$] (2,6)
+       to[R,l=$R_1$] (4,6)       
+       to[short] (4,3)
+       to[short] (5,3)
+       to[L,l=$L_1$] (5,0)
+       to[short] (4,0)
+       to[C,l=$C_1$] (0,0)
+ (4,0) to[Isrc,l=$j(t)$] (4,3)
+ (4,0) to[R,l=$R_1$] (0,3)
+       to[Z,l_=$Z_1$] (4,3)
+ (4,4.5) to[Isrc,l=$j(t)$] (0,4.5) 
+;
+\end{schemat}
+
+
+\subsubsection{Rozwiązanie}
+
+TBD
+\end{task}

@@ -1,0 +1,32 @@
+\begin{task}
+Oblicz rezystancję zastępczą widziana z zacisków a i b.
+\begin{schemat} 
+\draw
+ node[ocirc] (a) at ( 0, 0) {$a$}
+ node[ocirc] (b) at ( 0,-2) {$b$}
+  
+ (a) to[R,l=$R$] ( 2, 0)
+ ( 2, 0) to[R,l=$10R$] ( 4, 0)
+ ( 4, 0) to[R,l=$10R$] ( 6, 0) 
+ ( 6, 0) to[R,l=$10R$] ( 8, 0)
+ ( 8, 0) to[R,l=$10R$] (10, 0)
+ 
+ ( 2,0) to[short] ( 2, 1)
+ ( 6,0) to[short] ( 6, 1) 
+ (10,1) to[short] (10,-2)
+ ( 2,1) to[short] (10, 1) 
+
+ ( 4, 0) to[short] ( 4,-1)
+ ( 8, 0) to[short] ( 8,-1)
+ ( 4,-1) to[short] ( 8,-1)
+ ( 6,-1) to[short] ( 6,-2)
+ 
+ ( 6,-2) to[R,l=$10R$] ( 8,-2)
+ ( 8,-2) to[short]     (10,-2)
+ (b) to[R,l=$2R$] ( 2, -2)
+ ( 2, -2) to[short]  ( 6,-2)
+;
+\end{schemat}
+\subsubsection{Rozwiązanie}
+TBD
+\end{task}

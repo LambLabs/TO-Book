@@ -1,0 +1,21 @@
+\begin{task}
+Oblicz rozpływ prądów metodą superpozycji. 
+Do obliczeń przyjmij: $E_1=45V$, $E_2=30V$, $J_1=1mA$, $R_1=6k\Omega$, $R_2=2k\Omega$, $R_3=4k\Omega$, $R_3=12k\Omega$.
+
+\begin{schemat} \draw
+(0,0)  to [short] (0,2)
+(4,0)  to [short] (4,2)
+(0,2)  to[Vsrc,l=$E_2$] (2,2)
+(2,2)  to [R,l=$R_2$] (4,2)
+
+(0,0)  to [R,l=$R_1$] (2,0)
+(2,0)  to [R,l=$R_3$] (4,0)
+(2,-2)  to [R,l=$R_4$] (2,0)
+(0,-2) to [Vsrc,l=$E_2$] (0,0)
+(4,-2) to [Isrc,l=$J_3$] (4,0)
+(0,-2) to [short] (4,-2)
+;\end{schemat}
+
+%\subsubsection{Rozwiązanie}
+%TBD
+\end{task}

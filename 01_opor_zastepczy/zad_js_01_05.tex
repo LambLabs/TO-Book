@@ -1,0 +1,22 @@
+\begin{task}
+Oblicz rezystancję zastępczą widziana z zacisków a i b. \\*
+$R_1=10\Omega, R_2=20\Omega, R_3=30\Omega, R_4=40\Omega, R_5=50\Omega$
+
+\begin{schemat}
+\draw
+ node[ocirc] (a) at ( 0, 0) {$a$}
+ node[ocirc] (b) at ( 6, 0) {$b$}
+  
+ (a) to[short] ( 1, 0)
+ (b) to[short] ( 5, 0)
+ 
+ ( 1, 0) to[R,l=$R_1$] ( 3, 2)
+ ( 1, 0) to[R,l=$R_3$] ( 3,-2)
+ ( 3, 2) to[R,l=$R_5$] ( 3,-2)
+ ( 5, 0) to[R,l=$R_2$] ( 3, 2)
+ ( 5, 0) to[R,l=$R_4$] ( 3,-2)
+;
+\end{schemat}
+\subsubsection{Rozwiązanie}
+TBD
+\end{task}

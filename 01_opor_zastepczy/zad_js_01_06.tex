@@ -1,0 +1,23 @@
+\begin{task}
+Oblicz rezystancję zastępczą widziana z zacisków a i b. \\*
+
+\begin{schemat}
+\draw
+ node[ocirc] (a) at ( 0, 0) {$a$}
+ node[ocirc] (b) at ( 8, 0) {$b$}
+  
+ (a) to[short] ( 1, 0)
+ (b) to[short] ( 7, 0)
+ 
+ ( 1, 0) to[R,l=$3R$] ( 7, 0)
+ ( 1, 0) to[R,l=$3R$] ( 4, 4)
+ ( 4, 4) to[R,l=$3R$] ( 7, 0)
+ 
+ ( 1, 0) to[R,l=$R$] ( 4, 1.5)
+ (4, 1.5) to[R,l=$R$] ( 7, 0)
+ (4, 1.5) to[R,l=$R$] ( 4, 4)
+;
+\end{schemat}
+\subsubsection{Rozwiązanie}
+TBD
+\end{task}

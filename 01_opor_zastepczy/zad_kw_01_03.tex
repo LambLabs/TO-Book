@@ -1,0 +1,279 @@
+\begin{task}
+Wyznacz impedancje zastępczą $Z_{AB}$ poniższego układu pomiędzy zaciskami A i B. Podaj wzór na impedancje zastępczą oraz jego wartość. Przyjmij że $Z=2+j\,\Omega$
+\begin{schemat}
+\label{schemat:01:03:kw:Z}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-6) {}
+
+ (A) to[short] (1,0)
+     to[Z,l_=$Z_4$,*-] (4,0)
+     to[Z,l_=$Z_5$] (4,-3)
+     to[Z,l_=$Z_6$] (4,-6)
+     to[short] (B)
+ (1,0) to[Z,l_=$Z_1$,*-*] (1,-3)
+       to[Z,l_=$Z_2$,*-*] (1,-6)
+ (1,-3) to[Z,l_=$Z_3$,*-*] (4,-3)     
+;
+\end{schemat}
+
+\subsubsection{Rozwiązanie}
+Analizę układu należy rozpocząć od obserwacji iż żadne dwie impedancje nie są połączone szeregowo ani równolegle. Można natomiast zauważyć iż zaznaczone na schemacie \ref{schemat:01:03:kw:A} impedancje $Z_1$, $Z_2$ oraz $Z_3$ są połączone w gwiazdę. Można zastąpić je układem trzech impedancji $Z_A$, $Z_B$ i $Z_C$ połączonych w trójkąt.
+\begin{schemat}
+\label{schemat:01:03:kw:A}
+\draw
+node[ocirc,label=A] (A) at (0, 0) {}
+node[ocirc,label=below:B] (B) at (0,-6) {}
+
+(A) to[short] (1,0)
+to[Z,l_=$Z_4$,*-] (4,0)
+to[Z,l_=$Z_5$] (4,-3)
+to[Z,l_=$Z_6$] (4,-6)
+to[short] (B)
+(1,0) to[Z,l_=$Z_1$,*-*] (1,-3)
+to[Z,l_=$Z_2$,*-*] (1,-6)
+(1,-3) to[Z,l_=$Z_3$,*-*] (4,-3)     
+;
+\draw[color=red] (1.6,-3.0) ellipse (1.8 and 2.7);
+\end{schemat}
+
+\begin{align*}
+R_A=R_1+R_3+\frac{R_1 \cdot R_3}{R_2}\\
+R_B=R_2+R_3+\frac{R_2 \cdot R_3}{R_1}\\
+R_C=R_1+R_2+\frac{R_1 \cdot R_2}{R_3}
+\end{align*}
+
+\begin{schemat}
+\label{schemat:01:03:kw:B}
+\draw
+node[ocirc,label=A] (A) at (0, 0) {}
+node[ocirc,label=below:B] (B) at (0,-6) {}
+
+(A)   to[short] (1,0)
+      to[Z,l_=$Z_4$,*-] (4,0)
+      to[Z,l_=$Z_5$] (4,-3)
+      to[Z,l_=$Z_6$] (4,-6)
+      to[short] (B)
+(1,0) to[Z,l=$Z_A$,*-*] (4,-3)
+      to[Z,l=$Z_B$,*-*] (1,-6)
+      to[Z,l_=$Z_C$,*-*] (1, 0)     
+;
+\end{schemat}
+%-----------------------------------------------
+Następnie należy zauważyć iż impedancje $Z_{4}$ i $Z_{5}$ są połączone szeregowo i zastąpić je jedną impedancją zastępczą o wartości $Z_{45}$
+\begin{schemat}
+\label{schemat:01:03:kw:C}
+\draw
+node[ocirc,label=A] (A) at (0, 0) {}
+node[ocirc,label=below:B] (B) at (0,-6) {}
+
+(A)   to[short] (1,0)
+to[Z,l_=$Z_4$,*-] (4,0)
+to[Z,l_=$Z_5$] (4,-3)
+to[Z,l_=$Z_6$] (4,-6)
+to[short] (B)
+(1,0) to[Z,l=$Z_A$,*-*] (4,-3)
+to[Z,l=$Z_B$,*-*] (1,-6)
+to[Z,l_=$Z_C$,*-*] (1, 0)     
+;
+\draw[color=red,rotate around={45:(3.5,-0.7)}] (3.5,-0.7) ellipse (0.8 and 2.0);
+\end{schemat}
+
+\begin{align*}
+Z_{45}&=Z_{4}+Z_{5}
+\end{align*}
+
+\begin{schemat}
+\label{schemat:01:03:kw:D}
+\draw
+node[ocirc,label=A] (A) at (0, 0) {}
+node[ocirc,label=below:B] (B) at (0,-6) {}
+
+(A)   to[short] (2.0,0)
+      to[Z,l=$Z_{45}$] (4,-2.0)
+      to[short] (4,-3)
+      to[Z,l_=$Z_6$] (4,-6)
+      to[short] (B)
+(1,0) to[Z,l_=$Z_A$,*-*] (4,-3)
+      to[Z,l=$Z_B$,*-*] (1,-6)
+      to[Z,l_=$Z_C$,*-*] (1, 0)     
+;
+\end{schemat}
+%-----------------------------------------------
+Następnie można zauważyć iż impedancje $Z_{45}$ oraz $Z_{A}$ są połączone równolegle i zastąpić je jedną impedancją zastępczą o wartości $Z_{45A}$
+\begin{schemat}
+\label{schemat:01:03:kw:E}
+\draw
+node[ocirc,label=A] (A) at (0, 0) {}
+node[ocirc,label=below:B] (B) at (0,-6) {}
+
+(A)   to[short] (2.0,0)
+to[Z,l=$Z_{45}$] (4,-2.0)
+to[short] (4,-3)
+to[Z,l_=$Z_6$] (4,-6)
+to[short] (B)
+(1,0) to[Z,l_=$Z_A$,*-*] (4,-3)
+to[Z,l=$Z_B$,*-*] (1,-6)
+to[Z,l_=$Z_C$,*-*] (1, 0)     
+;
+\draw[color=red,rotate around={-45:(3,-1.0)}] (3,-1.0) ellipse (1.0 and 1.5);
+\end{schemat}
+
+\begin{align*}
+\frac{1}{Z_{45A}}&=\frac{1}{Z_{45}}+\frac{1}{Z_{A}}=\\
+&=\frac{Z_{A}}{Z_{45} \cdot Z_{A}}+\frac{Z_{45}}{Z_{45} \cdot Z_{A}}=\\
+&=\frac{Z_{45} + Z_{A}}{Z_{45} \cdot Z_{A}}\\
+Z_{45A}&=\frac{Z_{45} \cdot Z_{A}}{Z_{45} + Z_{A}}
+\end{align*}
+
+Wstawiają wcześniej wyznaczone wartości impedancji $Z_{45}$ i $Z_{A}$ otrzymujemy
+
+\begin{align*}
+Z_{45A}&=\frac{Z_{45} \cdot Z_{A}}{Z_{45} + Z_{A}}=\\
+&=\frac{\left(Z_{4}+Z_{5}\right) \cdot \left( R_1+R_3+\frac{R_1 \cdot R_3}{R_2} \right)}{Z_{4} + Z_{5} + R_1+R_3+\frac{R_1 \cdot R_3}{R_2} }
+\end{align*}
+
+\begin{schemat}
+\label{schemat:01:03:kw:F}
+\draw
+node[ocirc,label=A] (A) at (0, 0) {}
+node[ocirc,label=below:B] (B) at (0,-6) {}
+
+(A)    to[short] (1.5,0)
+       to[Z,l=$Z_{45A}$] (4,-2.5)
+       to[short] (4,-3)
+       to[Z,l_=$Z_6$] (4,-6)
+       to[short] (B)
+(4,-3) to[Z,l=$Z_B$,*-*] (1,-6)
+       to[Z,l_=$Z_C$,*-*] (1, 0)     
+;
+\end{schemat}
+%-----------------------------------------------
+Następnie należy zauważyć iż impedancje $Z_B$ oraz $Z_{6}$ są połączone równolegle. I można je zastąpić jedną impedancją zastępczą o wartości $Z_{B6}$. 
+\begin{schemat}
+\label{schemat:01:03:kw:G}
+\draw
+node[ocirc,label=A] (A) at (0, 0) {}
+node[ocirc,label=below:B] (B) at (0,-6) {}
+
+(A)    to[short] (1.5,0)
+       to[Z,l=$Z_{45A}$] (4,-2.5)
+       to[short] (4,-3)
+       to[Z,l_=$Z_6$] (4,-6)
+       to[short] (B)
+(4,-3) to[Z,l=$Z_B$,*-*] (1,-6)
+       to[Z,l_=$Z_C$,*-*] (1, 0)     
+;
+\draw[color=red] (3,-4.5) ellipse (1.5 and 1.0);
+\end{schemat}
+
+\begin{align*}
+\frac{1}{Z_{B6}}&=\frac{1}{Z_{B}}+\frac{1}{Z_{6}}=\\
+&=\frac{Z_{6}+Z_{B}}{Z_{B} \cdot Z_{6}}\\
+Z_{B6}&=\frac{Z_{B} \cdot Z_{6}}{Z_{6}+Z_{B}}
+\end{align*}
+
+Wstawiają wcześniej wyznaczoną wartości impedancji $Z_{B}$ otrzymujemy
+
+\begin{align*}
+Z_{B6}&=\frac{Z_{B} \cdot Z_{6}}{Z_{6}+Z_{B}}=\\
+&=\frac{\left( R_2+R_3+\frac{R_2 \cdot R_3}{R_1} \right) \cdot Z_{6}}{Z_{6}+R_2+R_3+\frac{R_2 \cdot R_3}{R_1}}
+\end{align*}
+%
+\begin{schemat}
+\label{schemat:01:03:kw:H}
+\draw
+node[ocirc,label=A] (A) at (0, 0) {}
+node[ocirc,label=below:B] (B) at (0,-6) {}
+
+(A)    to[short] (1.5,0)
+       to[Z,l=$Z_{45A}$] (4,-2.5)
+       to[short] (4,-3.5)
+       to[Z,l_=$Z_B6$] (1.5,-6)
+       to[short] (B)
+(1,-6) to[Z,l_=$Z_C$,*-*] (1, 0)     
+;
+\end{schemat}
+%-----------------------------------------------
+Następnie należy zauważyć iż impedancje $Z_{45A}$ oraz $Z_{B6}$ są połączona szeregowo. I można ją zastąpić jedną impedancją zastępczą o wartości $Z_{45AB6}$. 
+\begin{schemat}
+\label{schemat:01:03:kw:I}
+\draw
+node[ocirc,label=A] (A) at (0, 0) {}
+node[ocirc,label=below:B] (B) at (0,-6) {}
+
+(A)    to[short] (1.5,0)
+to[Z,l=$Z_{45A}$] (4,-2.5)
+to[short] (4,-3.5)
+to[Z,l_=$Z_B6$] (1.5,-6)
+to[short] (B)
+(1,-6) to[Z,l_=$Z_C$,*-*] (1, 0)     
+;
+\draw[color=red] (2.8,-3.0) ellipse (1.0 and 3.0);
+\end{schemat}
+
+\begin{align*}
+Z_{45AB6} = Z_{45A} + Z_{B6}
+\end{align*}
+
+Wstawiając obliczone wcześniej wartości impedancji $Z_{45A}$ i $Z_{B6}$
+
+\begin{align*}
+Z_{45AB6} &= Z_{45A} + Z_{B6}=\\
+&=\frac{\left(Z_{4}+Z_{5}\right) \cdot \left( R_1+R_3+\frac{R_1 \cdot R_3}{R_2} \right)}{Z_{4} + Z_{5} + R_1+R_3+\frac{R_1 \cdot R_3}{R_2} } + \frac{\left( R_2+R_3+\frac{R_2 \cdot R_3}{R_1} \right) \cdot Z_{6}}{Z_{6}+R_2+R_3+\frac{R_2 \cdot R_3}{R_1}}
+\end{align*}
+
+\begin{schemat}
+\label{schemat:01:03:kw:J}
+\draw
+node[ocirc,label=A] (A) at (0, 0) {}
+node[ocirc,label=below:B] (B) at (0,-6) {}
+
+(A)    to[short] (2.0,0)
+to[Z,l=$Z_{45AB6}$] (2.0,-6)
+to[short] (B)
+(1,-6) to[Z,l=$Z_C$,*-*] (1, 0)     
+;
+\end{schemat}
+%-----------------------------------------------
+Ostatecznie można zauważyć iż impedancje $Z_{C}$ oraz $Z_{45AB6}$ są połączona równolegle. I można ją zastąpić jedną impedancją zastępczą o wartości $Z_{C45AB6}$. 
+\begin{schemat}
+\label{schemat:01:03:kw:K}
+\draw
+node[ocirc,label=A] (A) at (0, 0) {}
+node[ocirc,label=below:B] (B) at (0,-6) {}
+
+(A)    to[short] (2.0,0)
+to[Z,l=$Z_{45AB6}$] (2.0,-6)
+to[short] (B)
+(1,-6) to[Z,l=$Z_C$,*-*] (1, 0)     
+;
+\draw[color=red] (1.5,-3.0) ellipse (2.0 and 1.0);
+\end{schemat}
+
+\begin{align*}
+\frac{1}{Z_{C45AB6}} &= \frac{1}{Z_{C}}+\frac{1}{Z_{45AB6}}\\
+&=\frac{Z_{C} + Z_{45AB6}}{Z_{C} \cdot Z_{45AB6}}\\
+Z_{C45AB6}&=\frac{Z_{C} \cdot Z_{45AB6}}{Z_{C} + Z_{45AB6}}
+\end{align*}
+
+Wstawiając obliczone wcześniej wartości impedancji $Z_{C}$ i $Z_{45AB6}$ otrzymujemy
+
+\begin{align*}
+Z_{C45AB6}&=\frac{Z_{C} \cdot Z_{45AB6}}{Z_{C} + Z_{45AB6}}=\\
+&= dokończyć
+\end{align*}
+
+\begin{schemat}
+\label{schemat:01:03:kw:L}
+\draw
+node[ocirc,label=A] (A) at (0, 0) {}
+node[ocirc,label=below:B] (B) at (0,-6) {}
+
+(A)    to[short] (1.5,0)
+to[Z,l=$Z_{C45AB6}$] (1.5,-6)
+to[short] (B)   
+;
+\end{schemat}
+Tak więc impedancja zastępcza obwodu przedstawionego na schemacie \ref{schemat:01:03:kw:Z} równa się $Z_{C45AB6}$
+\end{task}

@@ -1,0 +1,89 @@
+\subsection{Dzielniki napięciowe i prądowe}
+
+\subsubsection{Dzielnik napięciowy}
+\begin{schemat}
+\draw
+ node[ocirc] (A) at ( 0, 0) {}
+ node[ocirc] (B) at ( 0,-4) {}
+ (A) to[open, v=$U$] (B)
+ ( 0, 0) to[short,i=$I$]       ( 2, 0)
+ ( 2, 0) to[R,l=$R_1$,v=$U_1$] ( 2,-2)
+ ( 2,-2) to[R,l=$R_2$,v=$U_2$] ( 2,-4)
+ ( 0,-4) to[short]     ( 2,-4)
+;
+\end{schemat}
+
+\begin{equation}
+U=U_1+U_2
+\end{equation}
+\begin{equation}
+U_1=R_1 \cdot I
+\end{equation}
+\begin{equation}
+U_2=R_2 \cdot I
+\end{equation}
+\begin{equation}
+I=\frac{U}{R_z}=\frac{U}{R_1+R_2}
+\end{equation}
+
+\begin{equation}
+U_1=\frac{R_1}{R_1+R_2} \cdot U
+\end{equation}
+\begin{equation}
+U_2=\frac{R_2}{R_1+R_2} \cdot U
+\end{equation}
+
+\begin{equation}
+U_1=\frac{G_2}{G_1+G_2} \cdot U
+\end{equation}
+\begin{equation}
+U_2=\frac{G_1}{G_1+G_2} \cdot U
+\end{equation}
+
+
+\subsubsection{Dzielnik pradowy}
+\begin{schemat} 
+%przesynąć etykiety węzłów dalej od węzłów
+\draw
+ node[ocirc] (A) at ( 0, 0) {}
+ node[ocirc] (B) at ( 0,-4) {}
+ (A) to[open, v=$U$] (B)
+ ( 0, 0) to[short,i=$I$]       ( 2, 0)
+ ( 2, 0) to[short      ]       ( 2,-1)
+ ( 2,-1) to[short      ]       ( 1,-1)
+ ( 2,-1) to[short      ]       ( 3,-1) 
+ ( 1,-1) to[R,l=$R_1$,i>^=$I_1$] ( 1,-3)
+ ( 3,-1) to[R,l=$R_2$,i>^=$I_2$] ( 3,-3)
+ ( 2,-3) to[short      ]       ( 1,-3)
+ ( 2,-3) to[short      ]       ( 3,-3)
+ ( 2,-3) to[short      ]       ( 2,-4)
+ ( 0,-4) to[short]     ( 2,-4)
+;
+\end{schemat}
+
+\begin{equation}
+I=I_1+I_2
+\end{equation}
+\begin{equation}
+I=\frac{U}{R_z}=\frac{U}{\frac{R_1 \cdot R_2}{R_1+R_2}}
+\end{equation}
+\begin{equation}
+I_1=\frac{U}{R_1}
+\end{equation}
+\begin{equation}
+I_2=\frac{U}{R_2}
+\end{equation}
+
+\begin{equation}
+I_1=\frac{R_2}{R_1+R_2} \cdot I
+\end{equation}
+\begin{equation}
+I_2=\frac{R_1}{R_1+R_2} \cdot I
+\end{equation}
+
+\begin{equation}
+I_1=\frac{G_1}{G_1+G_2} \cdot I
+\end{equation}
+\begin{equation}
+I_2=\frac{G_2}{G_1+G_2} \cdot I
+\end{equation}

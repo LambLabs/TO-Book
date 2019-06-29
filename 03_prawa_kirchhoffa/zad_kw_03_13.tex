@@ -1,0 +1,28 @@
+\begin{task}
+Wyznacz wartość natężenia prądu $i_1(t)$ oraz $i_1(t)$ w obwodzie na rysunku poniżej.
+
+\begin{align*}
+L&=1 n \henr \\
+C&=250 p \farad \\
+e_1(t)&=100 \cdot sin\left(10^9 \cdot t + \frac{\pi}{4} \right) \\
+e_2(t)&=100 \cdot sin\left(10^9 \cdot t + \frac{\pi}{2} \right)
+\end{align*}
+
+\begin{schemat}
+\label{schemat:03:13:kw:Z}
+\draw
+ (0,0) to[Vsrc,l=$e_1(t)$] (0,3)
+       to[L,l=$L$,i>^=$\underline{I_1}$] (3,3)
+       to[L,l=$L$] (6,3)
+       to[C,l=$C$] (6,0)       
+       to[Vsrc,l=$e_2(t)$] (3,0)
+       to[C,l=$C$] (0,0)
+ (3,0) to[L,l=$L$,i<=$\underline{I_2}$] (3,3)
+;
+\end{schemat}
+
+
+\subsubsection{Rozwiązanie}
+
+TBD
+\end{task}

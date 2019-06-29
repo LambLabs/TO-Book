@@ -1,0 +1,190 @@
+% Copyright 2014-2015 by Krzysztof Wegner
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/LICENSE for more details.
+
+
+%%%%%
+%%%%%
+%%%%%
+%%%%%
+%%%%%
+
+\NeedsTeXFormat{LaTeX2e}
+
+\def\pgfplcircversion{0.0.1}
+
+\ProvidesPackage{polishcircuitikz}%
+        [2014/06/21 The PolishCircuiTikz circuit drawing package version \pgfplcircversion]
+
+%% Version 0.3.0 of circuitikz is required
+\RequirePackage{circuitikz}
+
+%%%%%%%%%
+
+%% Controlled voltage source - Polish
+\pgfcircdeclarebipole{}{\ctikzvalof{bipoles/cisourceam/height}}{cvsourcePL}{\ctikzvalof{bipoles/cisourceam/height}}{\ctikzvalof{bipoles/cisourceam/width}}{
+
+	\pgfsetlinewidth{\pgfkeysvalueof{/tikz/circuitikz/bipoles/thickness}\pgfstartlinewidth}
+	
+			\pgfpathmoveto{\pgfpoint{\pgf@circ@res@left}{\pgf@circ@res@zero}}
+			\pgfpathlineto{\pgfpoint{\pgf@circ@res@zero}{\pgf@circ@res@up}}
+			\pgfpathlineto{\pgfpoint{\pgf@circ@res@right}{\pgf@circ@res@zero}}
+			\pgfpathlineto{\pgfpoint{\pgf@circ@res@zero}{\pgf@circ@res@down}}
+			\pgfpathlineto{\pgfpoint{\pgf@circ@res@left}{\pgf@circ@res@zero}}
+			\pgfusepath{draw}		
+
+	\pgfpathmoveto{\pgfpoint{.7\pgf@circ@res@left}{\pgf@circ@res@zero}}
+	\pgfpathlineto{\pgfpoint{.7\pgf@circ@res@right}{\pgf@circ@res@zero}}
+	\pgfusepath{draw}
+	\pgfscope
+		\ifpgf@circ@oldvoltagedirection
+			\pgftransformshift{\pgfpoint{.5\pgf@circ@res@right}{\pgf@circ@res@zero}}
+		\else
+			\ifpgf@circuit@bipole@voltage@backward
+				\pgftransformshift{\pgfpoint{-.5\pgf@circ@res@right}{\pgf@circ@res@zero}}
+				\pgftransformrotate{180}
+			\else
+				\pgftransformshift{\pgfpoint{.5\pgf@circ@res@right}{\pgf@circ@res@zero}}
+		\fi\fi
+		\pgfnode{currarrow}{center}{}{}{\pgfusepath{draw}}
+	\endpgfscope
+}
+
+%% Controlled current source - Polish
+\pgfcircdeclarebipole{}{\ctikzvalof{bipoles/cisourceam/height}}{cisourcePL}{\ctikzvalof{bipoles/cisourceam/height}}{\ctikzvalof{bipoles/cisourceam/width}}{
+
+	\pgfsetlinewidth{\pgfkeysvalueof{/tikz/circuitikz/bipoles/thickness}\pgfstartlinewidth}
+	
+			\pgfpathmoveto{\pgfpoint{\pgf@circ@res@left}{\pgf@circ@res@zero}}
+			\pgfpathlineto{\pgfpoint{\pgf@circ@res@zero}{\pgf@circ@res@up}}
+			\pgfpathlineto{\pgfpoint{\pgf@circ@res@right}{\pgf@circ@res@zero}}
+			\pgfpathlineto{\pgfpoint{\pgf@circ@res@zero}{\pgf@circ@res@down}}
+			\pgfpathlineto{\pgfpoint{\pgf@circ@res@left}{\pgf@circ@res@zero}}
+			\pgfusepath{draw}		
+
+			\pgfpathmoveto{\pgfpoint{0.8\pgf@circ@res@left}{\pgf@circ@res@zero}}
+			\pgfpathlineto{\pgfpoint{\pgf@circ@res@zero}{0.8\pgf@circ@res@up}}
+			\pgfpathlineto{\pgfpoint{0.8\pgf@circ@res@right}{\pgf@circ@res@zero}}
+			\pgfpathlineto{\pgfpoint{\pgf@circ@res@zero}{0.8\pgf@circ@res@down}}
+			\pgfpathlineto{\pgfpoint{0.8\pgf@circ@res@left}{\pgf@circ@res@zero}}
+			\pgfusepath{draw}	
+
+	\pgfpathmoveto{\pgfpoint{.6\pgf@circ@res@left}{\pgf@circ@res@zero}}
+	\pgfpathlineto{\pgfpoint{.5\pgf@circ@res@right}{\pgf@circ@res@zero}}
+	\pgfusepath{draw}
+	\pgfscope
+		\ifpgf@circ@oldvoltagedirection
+			\pgftransformshift{\pgfpoint{.5\pgf@circ@res@right}{\pgf@circ@res@zero}}
+		\else
+			\ifpgf@circuit@bipole@current@backward
+				\pgftransformshift{\pgfpoint{-.5\pgf@circ@res@right}{\pgf@circ@res@zero}}
+				\pgftransformrotate{180}
+			\else
+				\pgftransformshift{\pgfpoint{.5\pgf@circ@res@right}{\pgf@circ@res@zero}}
+		\fi\fi
+		\pgfnode{currarrow}{center}{}{}{\pgfusepath{draw}}
+	\endpgfscope
+}
+
+%% Independent voltage source - Polish
+\pgfcircdeclarebipole{}{\ctikzvalof{bipoles/isourceam/height}}{vsourcePL}{\ctikzvalof{bipoles/isourceam/height}}{\ctikzvalof{bipoles/isourceam/width}}{
+	\pgfpointorigin
+	\pgfsetlinewidth{\pgfkeysvalueof{/tikz/circuitikz/bipoles/thickness}\pgfstartlinewidth}
+	\pgfpathellipse{\pgfpointorigin}{\pgfpoint{0}{\pgf@circ@res@up}}{\pgfpoint{\pgf@circ@res@left}{0}}
+	\pgfusepath{draw}
+
+	\pgfpathmoveto{\pgfpoint{.7\pgf@circ@res@left}{\pgf@circ@res@zero}}
+	\pgfpathlineto{\pgfpoint{.7\pgf@circ@res@right}{\pgf@circ@res@zero}}
+	\pgfusepath{draw}
+	\pgfscope
+		\ifpgf@circ@oldvoltagedirection
+			\pgftransformshift{\pgfpoint{.5\pgf@circ@res@right}{\pgf@circ@res@zero}}
+		\else
+			\ifpgf@circuit@bipole@voltage@backward
+				\pgftransformshift{\pgfpoint{-.5\pgf@circ@res@right}{\pgf@circ@res@zero}}
+				\pgftransformrotate{180}
+			\else
+				\pgftransformshift{\pgfpoint{.5\pgf@circ@res@right}{\pgf@circ@res@zero}}
+		\fi\fi
+		\pgfnode{currarrow}{center}{}{}{\pgfusepath{stroke}}
+	\endpgfscope
+}
+
+%% Independent current source - Polish
+\pgfcircdeclarebipole{}{\ctikzvalof{bipoles/isourceam/height}}{isourcePL}{\ctikzvalof{bipoles/isourceam/height}}{\ctikzvalof{bipoles/isourceam/width}}{
+	\pgfpointorigin
+	\pgfsetlinewidth{\pgfkeysvalueof{/tikz/circuitikz/bipoles/thickness}\pgfstartlinewidth}
+	\pgfpathellipse{\pgfpointorigin}{\pgfpoint{0}{.8\pgf@circ@res@up}}{\pgfpoint{.8\pgf@circ@res@left}{0}}
+	\pgfpathellipse{\pgfpointorigin}{\pgfpoint{0}{\pgf@circ@res@up}}{\pgfpoint{\pgf@circ@res@left}{0}}
+	\pgfusepath{draw}
+
+	\pgfpathmoveto{\pgfpoint{.6\pgf@circ@res@left}{\pgf@circ@res@zero}}
+	\pgfpathlineto{\pgfpoint{.5\pgf@circ@res@right}{\pgf@circ@res@zero}}
+	\pgfusepath{draw}
+	\pgfscope
+		\ifpgf@circ@oldvoltagedirection
+			\pgftransformshift{\pgfpoint{.5\pgf@circ@res@right}{\pgf@circ@res@zero}}
+		\else
+			\ifpgf@circuit@bipole@current@backward
+				\pgftransformshift{\pgfpoint{-.5\pgf@circ@res@right}{\pgf@circ@res@zero}}
+				\pgftransformrotate{180}
+			\else
+				\pgftransformshift{\pgfpoint{.5\pgf@circ@res@right}{\pgf@circ@res@zero}}
+		\fi\fi
+		\pgfnode{currarrow}{center}{}{}{\pgfusepath{stroke}}
+	\endpgfscope
+}
+
+%%%%%%%%%
+
+\def\pgf@circ@vsourcepl@path#1{\pgf@circ@bipole@path{vsourcePL}{#1}}
+\def\pgf@circ@isourcepl@path#1{\pgf@circ@bipole@path{isourcePL}{#1}}
+\def\pgf@circ@cvsourcepl@path#1{\pgf@circ@bipole@path{cvsourcePL}{#1}}
+\def\pgf@circ@cisourcepl@path#1{\pgf@circ@bipole@path{cisourcePL}{#1}}
+
+%%%%%%%%%
+
+\tikzset{polish voltage source/.style = {\circuitikzbasekey, /tikz/to path=\pgf@circ@vsourcepl@path, \circuitikzbasekey/bipole/is voltage=true, \circuitikzbasekey/voltage = american, v=#1}}
+\tikzset{polish current source/.style = {\circuitikzbasekey, /tikz/to path=\pgf@circ@isourcepl@path, \circuitikzbasekey/bipole/is current=true, \circuitikzbasekey/current = american, i=#1}}
+
+\tikzset{polish controlled voltage source/.style = {\circuitikzbasekey, /tikz/to path=\pgf@circ@cvsourcepl@path, \circuitikzbasekey/bipole/is voltage=true, v=#1}}
+\tikzset{polish controlled current source/.style = {\circuitikzbasekey, /tikz/to path=\pgf@circ@cisourcepl@path, \circuitikzbasekey/bipole/is current=true, i=#1}}
+
+%% Bipole impedance - Polish
+\tikzset{Z/.style= {fullgeneric = #1}}
+\tikzset{Vsrc/.style= {polish voltage source = #1}}
+\tikzset{Isrc/.style= {polish current source = #1}}
+
+\tikzset{cVsrc/.style= {polish controlled voltage source = #1}}
+\tikzset{cIsrc/.style= {polish controlled current source = #1}}
+
+\def\pgf@temp#1{ 
+  \tikzset{Vsrc#1/.style = {polish voltage source, v#1=##1} } 
+}
+\pgf@temp{_>} \pgf@temp{_<} \pgf@temp{^>} \pgf@temp{^<} 
+\pgf@temp{>} \pgf@temp{<} \pgf@temp{^} \pgf@temp{_}
+ 
+\def\pgf@temp#1{
+  \tikzset{Isrc#1/.style = {polish current source, i#1=##1} }
+}
+\pgf@temp{_>} \pgf@temp{_<} \pgf@temp{^>} \pgf@temp{^<} 
+\pgf@temp{>_} \pgf@temp{<_} \pgf@temp{>^} \pgf@temp{<^} 
+\pgf@temp{>} \pgf@temp{<} \pgf@temp{^} \pgf@temp{_} 
+
+
+\newcommand*{\equal}{=}
+
+%% Units definition
+\newcommand{\volt}{\,V}
+\newcommand{\amper}{\,A}
+\newcommand{\henr}{\,H}
+\newcommand{\farad}{\,F}
+\newcommand{\ohm}{\,\Omega}
+
+\endinput
+

@@ -1,0 +1,25 @@
+\begin{task}
+Układzie przedstawiony poniżej, dopierz $Z_1$ w taki sposób aby nastąpiło dopasowanie na moc czynna.
+
+\begin{align}
+Z_w=2+2 \jmath \\
+C = 5 \farad \\
+R = 10 \ohm \\
+j(t) = 2 sin(t)
+\end{align}
+
+\begin{schemat} \draw
+(0,0)  to [Z,l=$Z_w$] (0,2)
+       to [short,-o] (2,2)
+       to [Z,l=$Z_1$] (4,2)
+       to [short] (5,2)
+       to [C,l=$C$] (5,0)
+       to [short,-o] (2,0)
+       to [short] (0,0)
+(1,0)  to [Isrc,l_=$j(t)$] (1,2)
+(4,0)  to [R,l=$R$] (4,2)
+;\end{schemat}
+
+%\subsubsection{Rozwiązanie}
+%TBD
+\end{task}

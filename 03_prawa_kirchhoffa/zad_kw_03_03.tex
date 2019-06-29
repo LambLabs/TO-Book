@@ -1,0 +1,22 @@
+\begin{task}
+Oblicz rozpływ prądów w układzie podanym na rysunku metodą praw Kirchhoffa. Wyznacz napięcia na rezystorach.
+
+\begin{center}\begin{circuitikz}[european] 
+\ctikzset{voltage/distance from line=0.2} 
+\ctikzset{voltage/european label distance=2.00}  
+%przesynąć etykiety węzłów dalej od węzłów
+\draw
+ (0,0) to[R,l=$R_1$] (2,0)
+       to[R,l_=$R_3$] (2,-2)
+       to[short] (0,-2)
+       to[american current source,l=$E_1$] (0,0)
+ (2,-2) to[short,*-] (4,-2)
+       to[american current source,l=$E_2$] (4,0)
+       to[R,l_=$R_2$,-*] (2,0)
+;\end{circuitikz}\end{center}
+
+Do obliczeń przyjmij że: $E_1=4V$, $E_2=6V$, $R_1=2\Omega$, $R_2=12\Omega$, $R_3=4\Omega$.
+
+\subsubsection{Rozwiązanie}
+TBD
+\end{task}

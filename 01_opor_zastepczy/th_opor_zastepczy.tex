@@ -1,0 +1,70 @@
+\subsection{Opór zastępczy}
+\subsubsection{Szeregowe łączenie rezystorów}
+\begin{schemat}
+\draw
+ node[ocirc] (A) at (0,0) {}
+ node[ocirc] (B) at (4,0) {}
+ (0,0) to[R,l=$R_1$] (2,0) 
+ (2,0) to[R,l=$R_2$] (4,0)
+;
+\end{schemat}
+
+\begin{equation}
+R_z=R_1+R_2
+\end{equation}
+
+\begin{schemat} 
+\draw
+ node[ocirc] (A) at (0,0) {}
+ node[ocirc] (B) at (8,0) {}
+ (0,0) to[R,l=$R_1$] (2,0) 
+ (2,0) to[R,l=$R_2$] (4,0)
+ (6,0) to[R,l=$R_n$] (8,0)
+;
+\end{schemat}
+\begin{equation}
+R_z=R_1+R_2+...+R_n
+\end{equation}
+
+\subsubsection{Równoległe łączenie rezystorów}
+
+\begin{schemat} 
+\draw
+ node[ocirc] (A) at ( 0, 0) {}
+ node[ocirc] (B) at ( 4, 0) {}
+ ( 0, 0) to[short]     ( 1, 0)
+ ( 1, 0) to[short]     ( 1, 1)
+ ( 1, 0) to[short]     ( 1,-1)
+ ( 1, 1) to[R,l=$R_1$] ( 3, 1) 
+ ( 1,-1) to[R,l=$R_2$] ( 3,-1)
+ ( 3, 1) to[short]     ( 3, 0)
+ ( 3,-1) to[short]     ( 3, 0)
+ ( 3, 0) to[short]     ( 4, 0)
+;
+\end{schemat}
+
+\begin{equation}
+R_z=\frac{R_1 \cdot R_2}{R_1+R_2}
+\end{equation}
+
+\begin{schemat}
+\draw
+ node[ocirc] (A) at ( 0, 0) {}
+ node[ocirc] (B) at ( 4, 0) {}
+ ( 0, 0) to[short]     ( 1, 0)
+ ( 1, 0) to[short]     ( 1, 1)
+ ( 1, 0) to[short]     ( 1,-0.5)
+ ( 1, -1) to[short]     ( 1,-1.5)
+ ( 1, 1) to[R,l=$R_1$] ( 3, 1) 
+ ( 1, 0) to[R,l=$R_2$] ( 3, 0)
+ ( 1, -1.5) to[R,l=$R_n$] ( 3, -1.5)
+ ( 3, 1) to[short]     ( 3, 0)
+ ( 3,-0.5) to[short]   ( 3, 0)
+ ( 3,-1) to[short]   ( 3, -1.5)
+ ( 3, 0) to[short]     ( 4, 0)
+;
+\end{schemat}
+
+\begin{equation}
+\frac{1}{R_z}=\frac{1}{R_1} + \frac{1}{R_2} + ... + \frac{1}{R_n}
+\end{equation}

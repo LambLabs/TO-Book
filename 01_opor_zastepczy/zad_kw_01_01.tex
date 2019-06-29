@@ -1,0 +1,579 @@
+\begin{task}
+Wyznacz impedancje zastępczą $Z_{AB}$ poniższego układu pomiędzy zaciskami A i B. Podaj wzór na impedancje zastępczą oraz jego wartość. Przyjmij że $Z=3+j\,\Omega$
+\begin{schemat}
+\label{schemat:01:01:kw:Z}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-3) {}
+ node[circ,label=45:C] (C) at (6, 0) {}
+ node[circ,label=below:D] (D) at (6,-3) {}
+ 
+ (A) to[Z,l_=$Z_1$,o-*] (3,0)
+     to[Z,l_=$Z_5$,*-*] (C)
+     to[Z,l_=$Z_9$,*-*] (9,0)
+     to[Z,l_=$Z_{11}$,*-*] (9,-3)     
+     to[Z,l_=$Z_{10}$,*-*] (D)  
+     to[Z,l_=$Z_8$,*-*] (C)
+ (B) to[Z,l_=$Z_2$,o-*] (3,-3)
+     to[Z,l=$Z_4$,*-] (3,-1.5)
+     to[Z,l=$Z_5$] (3,0)
+ (3,-3) to[short,-*] (3.5,-3)
+        to[short] (3.5,-2.5)
+        to[Z,l_=$Z_6$] (5.5,-2.5)
+        to[short] (5.5,-3.5)        
+        to[Z,l=$Z_7$] (3.5,-3.5)        
+        to[short] (3.5,-3)  
+ (5.5,-3) to[short,*-*] (D)
+ (D) to[short] (9,0)
+     to[short,-*] (10,1)
+     to[Z,l=$Z_{12}$] (10,-3)
+     to[short] (9,-3)
+ (C) to[short] (6,1)
+     to[short] (10,1)
+;
+\end{schemat}
+
+\subsubsection{Rozwiązanie}
+Analizę układu należy rozpocząć od obserwacji iż zaznaczone na schemacie \ref{schemat:01:00:kw:A} impedancje $Z_6$ oraz $Z_7$ połączone są równolegle.
+\begin{schemat}
+\label{schemat:01:01:kw:A}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-3) {}
+ node[circ,label=45:C] (C) at (6, 0) {}
+ node[circ,label=below:D] (D) at (6,-3) {}
+ 
+ (A) to[Z,l_=$Z_1$,o-*] (3,0)
+     to[Z,l_=$Z_5$,*-*] (C)
+     to[Z,l_=$Z_9$,*-*] (9,0)
+     to[Z,l_=$Z_{11}$,*-*] (9,-3)     
+     to[Z,l_=$Z_{10}$,*-*] (D)  
+     to[Z,l_=$Z_8$,*-*] (C)
+ (B) to[Z,l_=$Z_2$,o-*] (3,-3)
+     to[Z,l=$Z_4$,*-] (3,-1.5)
+     to[Z,l=$Z_5$] (3,0)
+ (3,-3) to[short,-*] (3.5,-3)
+        to[short] (3.5,-2.5)
+        to[Z,l_=$Z_6$] (5.5,-2.5)
+        to[short] (5.5,-3.5)        
+        to[Z,l=$Z_7$] (3.5,-3.5)        
+        to[short] (3.5,-3)  
+ (5.5,-3) to[short,*-*] (D)
+ (D) to[short] (9,0)
+     to[short,-*] (10,1)
+     to[Z,l=$Z_{12}$] (10,-3)
+     to[short] (9,-3)
+ (C) to[short] (6,1)
+     to[short] (10,1)
+;
+\draw[color=red] (4.5,-3) ellipse (1 and 1.0);
+\end{schemat}
+Impedancje te zastępujemy jedną impedancją o impedancji zastępczej $Z_{67}$
+\begin{align*}
+\frac{1}{Z_{67}}&=\frac{1}{Z_{6}}+\frac{1}{Z_{7}}=\\
+&=\frac{Z_{7}}{Z_{6}\cdot Z_{7}}+\frac{Z_{7}}{Z_{6}\cdot Z_{7}}=\\
+&=\frac{Z_{7} + Z_{6}}{Z_{6}\cdot Z_{7}}=\\
+Z_{67}&=\frac{Z_{6}\cdot Z_{7}}{Z_{7} + Z_{6}}
+\end{align*}
+
+\begin{schemat}
+\label{schemat:01:01:kw:B}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-3) {}
+ node[circ,label=45:C] (C) at (6, 0) {}
+ node[circ,label=below:D] (D) at (6,-3) {}
+ 
+ (A) to[Z,l_=$Z_1$,o-*] (3,0)
+     to[Z,l_=$Z_5$,*-*] (C)
+     to[Z,l_=$Z_9$,*-*] (9,0)
+     to[Z,l_=$Z_{11}$,*-*] (9,-3)     
+     to[Z,l_=$Z_{10}$,*-*] (D)  
+     to[Z,l_=$Z_8$,*-*] (C)
+ (B) to[Z,l_=$Z_2$,o-*] (3,-3)
+     to[Z,l=$Z_4$,*-] (3,-1.5)
+     to[Z,l=$Z_5$] (3,0)
+ (3,-3) to[Z,l_=$Z_{67}$] (D)
+     to[short] (9,0)
+     to[short,-*] (10,1)
+     to[Z,l=$Z_{12}$] (10,-3)
+     to[short] (9,-3)
+ (C) to[short] (6,1)
+     to[short] (10,1)
+;
+\end{schemat}
+%-----------------------------------------------
+Następnie należy zauważyć iż impedancje $Z_{3}$ i $Z_{4}$ są połączone szeregowo i zastąpić je jedną impedancją zastępczą o wartości $Z_{35}$
+\begin{schemat}
+\label{schemat:01:01:kw:C}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-3) {}
+ node[circ,label=45:C] (C) at (6, 0) {}
+ node[circ,label=below:D] (D) at (6,-3) {}
+ 
+ (A) to[Z,l_=$Z_1$,o-*] (3,0)
+     to[Z,l_=$Z_5$,*-*] (C)
+     to[Z,l_=$Z_9$,*-*] (9,0)
+     to[Z,l_=$Z_{11}$,*-*] (9,-3)     
+     to[Z,l_=$Z_{10}$,*-*] (D)  
+     to[Z,l_=$Z_8$,*-*] (C)
+ (B) to[Z,l_=$Z_2$,o-*] (3,-3)
+     to[Z,l=$Z_4$,*-] (3,-1.5)
+     to[Z,l=$Z_5$] (3,0)
+ (3,-3) to[Z,l_=$Z_{67}$] (D)
+     to[short] (9,0)
+     to[short,-*] (10,1)
+     to[Z,l=$Z_{12}$] (10,-3)
+     to[short] (9,-3)
+ (C) to[short] (6,1)
+     to[short] (10,1)
+;
+\draw[color=red] (3,-1.5) ellipse (0.5 and 2.0);
+\end{schemat}
+
+\begin{align*}
+Z_{34}&=Z_{3}+Z_{4}
+\end{align*}
+
+\begin{schemat}
+\label{schemat:01:01:kw:D}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-3) {}
+ node[circ,label=45:C] (C) at (6, 0) {}
+ node[circ,label=below:D] (D) at (6,-3) {}
+ 
+ (A) to[Z,l_=$Z_1$,o-*] (3,0)
+     to[Z,l_=$Z_5$,*-*] (C)
+     to[Z,l_=$Z_9$,*-*] (9,0)
+     to[Z,l_=$Z_{11}$,*-*] (9,-3)     
+     to[Z,l_=$Z_{10}$,*-*] (D)  
+     to[Z,l_=$Z_8$,*-*] (C)
+ (B) to[Z,l_=$Z_2$,o-*] (3,-3)
+     to[Z,l=$Z_{34}$,*-] (3,0)
+ (3,-3) to[Z,l_=$Z_{67}$] (D)
+     to[short] (9,0)
+     to[short,-*] (10,1)
+     to[Z,l=$Z_{12}$] (10,-3)
+     to[short] (9,-3)
+ (C) to[short] (6,1)
+     to[short] (10,1)
+;
+\end{schemat}
+%-----------------------------------------------
+Następnie należy zauważyć iż impedancje $Z_{11}$ oraz $Z_{12}$ są połączone równolegle i zastąpić je jedną impedancją zastępczą o wartości $Z_{1112}$
+\begin{schemat}
+\label{schemat:01:01:kw:E}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-3) {}
+ node[circ,label=45:C] (C) at (6, 0) {}
+ node[circ,label=below:D] (D) at (6,-3) {}
+ 
+ (A) to[Z,l_=$Z_1$,o-*] (3,0)
+     to[Z,l_=$Z_5$,*-*] (C)
+     to[Z,l_=$Z_9$,*-*] (9,0)
+     to[Z,l_=$Z_{11}$,*-*] (9,-3)     
+     to[Z,l_=$Z_{10}$,*-*] (D)  
+     to[Z,l_=$Z_8$,*-*] (C)
+ (B) to[Z,l_=$Z_2$,o-*] (3,-3)
+     to[Z,l=$Z_{34}$,*-] (3,0)
+ (3,-3) to[Z,l_=$Z_{67}$] (D)
+     to[short] (9,0)
+     to[short,-*] (10,1)
+     to[Z,l=$Z_{12}$] (10,-3)
+     to[short] (9,-3)
+ (C) to[short] (6,1)
+     to[short] (10,1)
+;
+\draw[color=red] (9.5,-1.5) ellipse (1.0 and 1.0);
+\end{schemat}
+
+\begin{align*}
+\frac{1}{Z_{1112}}&=\frac{1}{Z_{11}}+\frac{1}{Z_{12}}=\\
+&=\frac{Z_{12}}{Z_{11}+Z_{12}}R+\frac{Z_{11}}{Z_{11}+Z_{12}}=\\
+&=\frac{Z_{12} \cdot Z_{11}}{Z_{11}+Z_{12}}\\
+Z_{1112}&=\frac{Z_{11}+Z_{12}}{Z_{12} \cdot Z_{11}}
+\end{align*}
+
+\begin{schemat}
+\label{schemat:01:01:kw:F}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-3) {}
+ node[circ,label=45:C] (C) at (6, 0) {}
+ node[circ,label=below:D] (D) at (6,-3) {}
+ 
+ (A) to[Z,l_=$Z_1$,o-*] (3,0)
+     to[Z,l_=$Z_5$,*-*] (C)
+     to[Z,l_=$Z_9$,*-*] (9,0)
+ (9.5,-3) to[Z,l_=$Z_{10}$,-*] (D)  
+     to[Z,l_=$Z_8$,*-*] (C)
+ (B) to[Z,l_=$Z_2$,o-*] (3,-3)
+     to[Z,l=$Z_{34}$,*-] (3,0)
+ (3,-3) to[Z,l_=$Z_{67}$] (D)
+     to[short] (9,0)
+     to[short] (10,1)
+ (9.5,0.5) to[Z,l_=$Z_{1112}$,*-*] (9.5,-3) 
+ (C) to[short] (6,1)
+     to[short] (10,1)
+;
+\end{schemat}
+%-----------------------------------------------
+Następnie należy zauważyć iż impedancja $Z_9$ jest połączona równolegle ze zwarciem. I można ją zastąpić jednym zwarciem. 
+\begin{schemat}
+\label{schemat:01:01:kw:G}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-3) {}
+ node[circ,label=45:C] (C) at (6, 0) {}
+ node[circ,label=below:D] (D) at (6,-3) {}
+ 
+ (A) to[Z,l_=$Z_1$,o-*] (3,0)
+     to[Z,l_=$Z_5$,*-*] (C)
+     to[Z,l_=$Z_9$,*-*] (9,0)
+ (9.5,-3) to[Z,l_=$Z_{10}$,-*] (D)  
+     to[Z,l_=$Z_8$,*-*] (C)
+ (B) to[Z,l_=$Z_2$,o-*] (3,-3)
+     to[Z,l=$Z_{34}$,*-] (3,0)
+ (3,-3) to[Z,l_=$Z_{67}$] (D)
+     to[short] (9,0)
+     to[short] (10,1)
+ (9.5,0.5) to[Z,l_=$Z_{1112}$,*-*] (9.5,-3) 
+ (C) to[short] (6,1)
+     to[short] (10,1)
+;
+\draw[color=red] (7.5,0.5) ellipse (1.0 and 1.0);
+\end{schemat}
+
+\begin{align*}
+\frac{1}{Z_{90}}&=\frac{1}{Z_9}+\frac{1}{0}=\\
+&=\frac{0}{Z_9 \cdot 0}+\frac{Z_9}{Z_9 \cdot 0}=\\
+&=\frac{0 + Z_9}{Z_9 \cdot 0}\\
+Z_{90}&=\frac{Z_9 \cdot 0}{0 + Z_9}=\\
+&=\frac{0}{Z_9}=0
+\end{align*}
+%
+\begin{schemat}
+\label{schemat:01:01:kw:H}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-3) {}
+ node[circ,label=45:C] (C) at (6, 0) {}
+ node[circ,label=below:D] (D) at (6,-3) {}
+ 
+ (A) to[Z,l_=$Z_1$,o-*] (3,0)
+     to[Z,l_=$Z_5$,*-*] (C)
+     to[short] (6.0,0.5)
+     to[short] (9.5,0.5)
+ (9.5,-3) to[Z,l_=$Z_{10}$,-*] (D)  
+     to[Z,l_=$Z_8$,*-*] (C)
+ (B) to[Z,l_=$Z_2$,o-*] (3,-3)
+     to[Z,l=$Z_{34}$,*-] (3,0)
+ (3,-3) to[Z,l_=$Z_{67}$] (D)
+     to[short] (9,0)
+     to[short] (9.5,0.5) 
+     to[Z,l_=$Z_{1112}$,*-*] (9.5,-3) 
+;
+\end{schemat}
+%-----------------------------------------------
+Następnie należy zauważyć iż impedancje $Z_{10}$ oraz $Z_{1112}$ jest połączona szeregowo. I można ją zastąpić jedną impedancją zastępczą o wartości $Z_{101112}$. 
+\begin{schemat}
+\label{schemat:01:01:kw:I}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-3) {}
+ node[circ,label=45:C] (C) at (6, 0) {}
+ node[circ,label=below:D] (D) at (6,-3) {}
+ 
+ (A) to[Z,l_=$Z_1$,o-*] (3,0)
+     to[Z,l_=$Z_5$,*-*] (C)
+     to[short] (6.0,0.5)
+     to[short] (9.5,0.5)
+ (9.5,-3) to[Z,l_=$Z_{10}$,-*] (D)  
+     to[Z,l_=$Z_8$,*-*] (C)
+ (B) to[Z,l_=$Z_2$,o-*] (3,-3)
+     to[Z,l=$Z_{34}$,*-] (3,0)
+ (3,-3) to[Z,l_=$Z_{67}$] (D)
+     to[short] (9,0)
+     to[short] (9.5,0.5) 
+     to[Z,l_=$Z_{1112}$,*-*] (9.5,-3) 
+;
+\draw[color=red,rotate around={-45:(8.5,-2.0)}] (8.5,-2.0) ellipse (1.0 and 2.0);
+\end{schemat}
+
+\begin{align*}
+Z_{101112}&=Z_{10}+Z_{1112}\\
+\end{align*}
+
+Wstawiając obliczoną wcześniej wartość impedancji $Z_{1112}$
+
+\begin{align*}
+Z_{101112}&=Z_{10}+Z_{1112}=\\
+&=Z_{10}+\frac{Z_{11}+Z_{12}}{Z_{12} \cdot Z_{11}}=\\
+&=\frac{Z_{10} \cdot \left( Z_{12} \cdot Z_{11} \right)}{Z_{12} \cdot Z_{11}}+\frac{Z_{11}+Z_{12}}{Z_{12} \cdot Z_{11}}=\\
+&=\frac{Z_{10} \cdot \left( Z_{12} \cdot Z_{11} \right)+ Z_{11} + Z_{12}}{Z_{12} \cdot Z_{11}}
+\end{align*}
+
+\begin{schemat}
+\label{schemat:01:01:kw:J}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-3) {}
+ node[circ,label=45:C] (C) at (6, 0) {}
+ node[circ,label=below:D] (D) at (6,-3) {}
+ 
+ (A) to[Z,l_=$Z_1$,o-*] (3,0)
+     to[Z,l_=$Z_5$,*-*] (C)
+     to[short] (6.0,0.5)
+     to[short] (9.5,0.5)
+ (D) to[Z,l_=$Z_8$,*-*] (C)
+ (B) to[Z,l_=$Z_2$,o-*] (3,-3)
+     to[Z,l=$Z_{34}$,*-] (3,0)
+ (3,-3) to[Z,l_=$Z_{67}$] (D)
+     to[short] (9,0)
+     to[short] (9.5,0.5) 
+     to[short] (9.5,-0.5)
+     to[Z,l_=$Z_{101112}$] (7.0,-3)
+     to[short] (D) 
+;
+\end{schemat}
+%-----------------------------------------------
+Następnie należy zauważyć iż impedancja $Z_{101112}$ połączona jest równolegle ze zwarciem. A więc można ją zastąpić zwarciem. 
+\begin{schemat}
+\label{schemat:01:01:kw:K}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-3) {}
+ node[circ,label=45:C] (C) at (6, 0) {}
+ node[circ,label=below:D] (D) at (6,-3) {}
+ 
+ (A) to[Z,l_=$Z_1$,o-*] (3,0)
+     to[Z,l_=$Z_5$,*-*] (C)
+     to[short] (6.0,0.5)
+     to[short] (9.5,0.5)
+ (D) to[Z,l_=$Z_8$,*-*] (C)
+ (B) to[Z,l_=$Z_2$,o-*] (3,-3)
+     to[Z,l=$Z_{34}$,*-] (3,0)
+ (3,-3) to[Z,l_=$Z_{67}$] (D)
+     to[short] (9,0)
+     to[short] (9.5,0.5) 
+     to[short] (9.5,-0.5)
+     to[Z,l_=$Z_{101112}$] (7.0,-3)
+     to[short] (D) 
+;
+\draw[color=red,rotate around={45:(8.0,-1.5)}] (8.0,-1.5) ellipse (1.0 and 1.0);
+\end{schemat}
+
+\begin{align*}
+\frac{1}{Z_{1011120}}&=\frac{1}{0} + \frac{1}{Z_{101112}}=\\
+&=\frac{Z_{101112}}{0 \cdot Z_{101112}} + \frac{0}{0 \cdot Z_{101112}}=\\
+&=\frac{Z_{101112}+0}{0 \cdot Z_{101112}}\\
+Z_{1011120} &= \frac{0 \cdot Z_{101112}}{Z_{101112}+0}=0\\
+\end{align*}
+
+\begin{schemat}
+\label{schemat:01:01:kw:L}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-3) {}
+ node[circ,label=45:C] (C) at (6, 0) {}
+ node[circ,label=below:D] (D) at (6,-3) {}
+ 
+ (A) to[Z,l_=$Z_1$,o-*] (3,0)
+     to[Z,l_=$Z_5$,*-*] (C)
+     to[short] (6.0,0.5)
+     to[short] (9.5,0.5)
+ (D) to[Z,l_=$Z_8$,*-*] (C)
+ (B) to[Z,l_=$Z_2$,o-*] (3,-3)
+     to[Z,l=$Z_{34}$,*-] (3,0)
+ (3,-3) to[Z,l_=$Z_{67}$] (D)
+ (9.5,0.5) to[short] (9.5,0.0)
+     to[short] (6.5,-3)
+     to[short] (D) 
+;
+\end{schemat}
+%-----------------------------------------------
+Następnie należy zauważyć iż impedancja $Z_{8}$ połączona jest równolegle ze zwarciem. A więc można ją zastąpić zwarciem. 
+\begin{schemat}
+\label{schemat:01:01:kw:M}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-3) {}
+ node[circ,label=45:C] (C) at (6, 0) {}
+ node[circ,label=below:D] (D) at (6,-3) {}
+ 
+ (A) to[Z,l_=$Z_1$,o-*] (3,0)
+     to[Z,l_=$Z_5$,*-*] (C)
+     to[short] (6.0,0.5)
+     to[short] (9.5,0.5)
+ (D) to[Z,l_=$Z_8$,*-*] (C)
+ (B) to[Z,l_=$Z_2$,o-*] (3,-3)
+     to[Z,l=$Z_{34}$,*-] (3,0)
+ (3,-3) to[Z,l_=$Z_{67}$] (D)
+ (9.5,0.5) to[short] (9.5,0.0)
+     to[short] (6.5,-3)
+     to[short] (D) 
+;
+\draw[color=red] (7.0,-1.5) ellipse (2.0 and 1.0);
+\end{schemat}
+
+\begin{align*}
+\frac{1}{Z_{80}}&=\frac{1}{0} + \frac{1}{Z_{8}}=\\
+&=\frac{Z_{8}}{0 \cdot Z_{8}} + \frac{0}{0 \cdot Z_{8}}=\\
+&=\frac{Z_{8}+0}{0 \cdot Z_{8}}\\
+Z_{80} &= \frac{0 \cdot Z_{8}}{Z_{8}+0}=0\\
+\end{align*}
+
+\begin{schemat}
+\label{schemat:01:01:kw:N}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-3) {}
+ node[circ,label=45:C] (C) at (6, 0) {}
+ node[circ,label=below:D] (D) at (6,-3) {}
+ 
+ (A) to[Z,l_=$Z_1$,o-*] (3,0)
+     to[Z,l_=$Z_5$,*-*] (C)
+ (D) to[short] (C)
+ (B) to[Z,l_=$Z_2$,o-*] (3,-3)
+     to[Z,l=$Z_{34}$,*-] (3,0)
+ (3,-3) to[Z,l_=$Z_{67}$] (D)
+;
+\end{schemat}
+%-----------------------------------------------
+Następnie należy zauważyć iż impedancje $Z_{5}$ i $Z_{67}$ są połączone szeregowo. A więc można ją zastąpić jedną impedancją zastępczą o wartości $Z_{567}$. 
+\begin{schemat}
+\label{schemat:01:01:kw:O}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-3) {}
+ node[circ,label=45:C] (C) at (6, 0) {}
+ node[circ,label=below:D] (D) at (6,-3) {}
+ 
+ (A) to[Z,l_=$Z_1$,o-*] (3,0)
+     to[Z,l_=$Z_5$,*-*] (C)
+ (D) to[short] (C)
+ (B) to[Z,l_=$Z_2$,o-*] (3,-3)
+     to[Z,l=$Z_{34}$,*-] (3,0)
+ (3,-3) to[Z,l_=$Z_{67}$] (D)
+;
+\draw[color=red] (4.5,-1.5) ellipse (1.0 and 3.0);
+\end{schemat}
+
+\begin{align*}
+Z_{567} &= Z_{5}+Z_{67}\\
+\end{align*}
+
+Wstawiając wcześniej obliczoną wartość impedancji $Z_{67}$
+
+\begin{align*}
+Z_{567} &= Z_{5}+Z_{67}=\\
+&=Z_{5} + \frac{Z_{6}\cdot Z_{7}}{Z_{7} + Z_{6}} = \\
+&=\frac{Z_{5} \cdot \left( Z_{7} + Z_{6} \right)}{Z_{7} + Z_{6}} + \frac{Z_{6}\cdot Z_{7}}{Z_{7} + Z_{6}} = \\
+&=\frac{Z_{5} \cdot \left( Z_{7} + Z_{6} \right)+Z_{6}\cdot Z_{7} }{Z_{7} + Z_{6}}
+\end{align*}
+
+
+\begin{schemat}
+\label{schemat:01:01:kw:P}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-3) {}
+
+ (A) to[Z,l_=$Z_1$,o-*] (3,0)
+     to[short,*-] (4,0)
+     to[Z,l=$Z_{567}$] (4,-3)
+     to[short] (3,-3)
+ (B) to[Z,l_=$Z_2$,o-*] (3,-3)
+     to[Z,l=$Z_{34}$,*-] (3,0)
+;
+\end{schemat}
+%-----------------------------------------------
+Następnie należy zauważyć iż impedancje $Z_{34}$ i $Z_{567}$ są połączone równolegle. A więc można ją zastąpić jedną impedancją zastępczą o wartości $Z_{34567}$. 
+\begin{schemat}
+\label{schemat:01:01:kw:R}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-3) {}
+
+ (A) to[Z,l_=$Z_1$,o-*] (3,0)
+     to[short,*-] (4,0)
+     to[Z,l=$Z_{567}$] (4,-3)
+     to[short] (3,-3)
+ (B) to[Z,l_=$Z_2$,o-*] (3,-3)
+     to[Z,l=$Z_{34}$,*-] (3,0)
+;
+\draw[color=red] (3.5,-1.5) ellipse (2.0 and 1.0);
+\end{schemat}
+
+\begin{align*}
+\frac{1}{Z_{34567}} &= \frac{1}{Z_{34}}+\frac{1}{Z_{567}}\\
+\end{align*}
+
+Wstawiając wcześniej obliczone wartości impedancji $Z_{34}$ oraz $Z_{567}$
+
+\begin{align*}
+\frac{1}{Z_{34567}} &= \frac{1}{Z_{34}}+\frac{1}{Z_{567}}=\\
+&=\frac{1}{Z_{3}+Z_{4}}+\frac{1}{\frac{Z_{5} \cdot \left( Z_{7} + Z_{6} \right)+Z_{6}\cdot Z_{7} }{Z_{7} + Z_{6}}}=\\
+&=\frac{1}{Z_{3}+Z_{4}}+\frac{Z_{7} + Z_{6}}{Z_{5} \cdot \left( Z_{7} + Z_{6} \right)+Z_{6}\cdot Z_{7} }=\\
+&=\frac{Z_{5} \cdot \left( Z_{7} + Z_{6} \right)+Z_{6}\cdot Z_{7}}{\left( Z_{3}+Z_{4} \right) \cdot \left( Z_{5} \cdot \left( Z_{7} + Z_{6} \right)+Z_{6}\cdot Z_{7} \right)} + \frac{Z_{3}+Z_{4}}{\left( Z_{3}+Z_{4} \right) \cdot \left( Z_{5} \cdot \left( Z_{7} + Z_{6} \right)+Z_{6}\cdot Z_{7} \right)}=\\
+&=\frac{Z_{5} \cdot \left( Z_{7} + Z_{6} \right)+Z_{6}\cdot Z_{7}+Z_{3}+Z_{4}}{\left( Z_{3}+Z_{4} \right) \cdot \left( Z_{5} \cdot \left( Z_{7} + Z_{6} \right)+Z_{6}\cdot Z_{7} \right)}\\
+Z_{34567}&=\frac{\left( Z_{3}+Z_{4} \right) \cdot \left( Z_{5} \cdot \left( Z_{7} + Z_{6} \right)+Z_{6}\cdot Z_{7} \right)}{Z_{5} \cdot \left( Z_{7} + Z_{6} \right)+Z_{6}\cdot Z_{7}+Z_{3}+Z_{4}}
+\end{align*}
+
+\begin{schemat}
+\label{schemat:01:01:kw:S}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-3) {}
+
+ (A) to[Z,l_=$Z_1$,o-] (3,0)
+     to[short] (3.5,0)
+     to[Z,l=$Z_{34567}$] (3.5,-3)
+     to[short] (3,-3)
+     to[Z,l_=$Z_2$,-o] (B)
+;
+\end{schemat}
+%-----------------------------------------------
+Ostatecznie należy zauważyć iż impedancje $Z_1$, $Z_{34567}$ oraz $Z_{2}$ są połączone szeregowo i zastąpić je jedną impedancją zastępczą o wartości $R_{1234567}$
+\begin{schemat}
+\label{schemat:01:01:kw:T}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-3) {}
+
+ (A) to[Z,l_=$Z_1$,o-] (3,0)
+     to[short] (3.5,0)
+     to[Z,l=$Z_{34567}$] (3.5,-3)
+     to[short] (3,-3)
+     to[Z,l_=$Z_2$,-o] (B)
+;
+\draw[color=red] (2.5,-1.5) ellipse (3.0 and 3.0);
+\end{schemat}
+
+\begin{align*}
+Z_{1234567}&=Z_{1}+Z_{34567}+Z_{2}\\
+\end{align*}
+
+Podstawiając obliczoną wcześniej wartość impedancji $Z_{34567}$
+
+\begin{align*}
+Z_{1234567}&=Z_{1}+Z_{34567}+Z_{2}=\\
+&=Z_{1} + \frac{\left( Z_{3}+Z_{4} \right) \cdot \left( Z_{5} \cdot \left( Z_{7} + Z_{6} \right)+Z_{6}\cdot Z_{7} \right)}{Z_{5} \cdot \left( Z_{7} + Z_{6} \right)+Z_{6}\cdot Z_{7}+Z_{3}+Z_{4}} + Z_{2}
+\end{align*}
+
+\begin{schemat}
+\label{schemat:01:01:kw:U}
+\draw
+ node[ocirc,label=A] (A) at (0, 0) {}
+ node[ocirc,label=below:B] (B) at (0,-3) {}
+
+ (A) to[short] (0.5,0)
+     to[Z,l_=$Z_{1234567}$] (0.5,-3)
+     to[short] (B)
+;
+\end{schemat}
+Tak więc impedancja zastępcza obwodu przedstawionego na schemacie \ref{schemat:01:01:kw:Z} równa się $Z_{1234567}$
+\end{task}

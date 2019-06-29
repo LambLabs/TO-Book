@@ -1,0 +1,33 @@
+\begin{task}
+W układzie przedstawionym poniżej wyznacz wartość zespolonej amplitudy natężenia prądu $\underline{I_1}$.
+
+\begin{schemat}
+\label{schemat:03:09:kw:Z}
+\draw
+ (0,0) to[Z,l=$Z_1$] (0,2)
+       to[Vsrc,l=$e_1(t)$] (0,4)
+       to[short,i=$\underline{I_1}$] (2,4)
+       to[short] (4,4)
+       to[Vsrc,l_=$e_2(t)$] (6,4)
+       to[Z,l_=$Z_4$] (6,0) 
+       to[Z,l_=$Z_3$] (4,0)        
+       to[short] (0,0)
+ (2,0) to[Isrc,l=$j(t)$,*-*] (2,4)
+ (4,0) to[Z,l=$Z_2$,*-*] (4,4)
+;
+\end{schemat}
+
+\begin{align*}
+e_1(t)&=2 \cdot sin(2 \cdot t)\volt\\
+e_2(t)&= sin(2 \cdot t)\volt\\
+j(t)&= cos(2 \cdot t)\amper\\
+Z_1&=\jmath\ohm\\
+Z_2&=2\jmath+1\ohm\\
+Z_3&=\jmath\ohm\\
+Z_4&=1\ohm\\
+\end{align*}
+
+\subsubsection{Rozwiązanie}
+
+TBD
+\end{task}

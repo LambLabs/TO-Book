@@ -1,0 +1,33 @@
+\begin{task}
+W układzie przedstawionym poniżej dobierz opór $R$ w taki sposób aby prąd $I$ był równy zero.
+
+\begin{center}\begin{circuitikz}[european] 
+\ctikzset{voltage/distance from line=0.2} 
+\ctikzset{voltage/european label distance=2.00}  
+%przesynąć etykiety węzłów dalej od węzłów
+\draw
+ (0,0) to[R,l=$40\Omega$] (2,0)
+       to[R,l=$30\Omega$] (2,-3)
+       to[short] (0,-3)
+       to[american current source,l=$100V$] (0,0)
+ (2,0) to[short,*-*] (3,0)
+        to[short] (3,0.5)
+        to[R,l=$40\Omega$] (5,0.5) 
+        to[short] (5,0)
+        to[short,*-*] (6,0)
+ (3,0)  to[short] (3,-0.5)
+        to[R,l=$40\Omega$] (5,-0.5) 
+        to[short] (5,0)        
+ (2,-3) to[short,*-*] (6,-3)          
+ (6,-3) to[short] (8,-3)
+        to[short] (8,-2)
+        to[american current source,l_=$35V$] (8,-1) 
+        to[short,i>_=$I$] (8,0)
+        to[R,l_=$40\Omega$] (6,0)
+        to[R,l=$R$] (6,-3)
+       
+;\end{circuitikz}\end{center}
+
+\subsubsection{Rozwiązanie}
+TBD
+\end{task}
