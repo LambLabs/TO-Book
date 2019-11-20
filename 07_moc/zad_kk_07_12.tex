@@ -1,0 +1,129 @@
+\begin{task}
+\label{klima_zadanie1}
+W prostym układzie pokazanym poniżej występuje źródło napięcia sinusoidalnego o amplitudzie wynoszącej $10V$ i o rezystancji wewnętrznej $R_S = 2 \ohm$. Źródło jest obciążone odbiornikiem o impedancji wynoszącej $Z_L$. Rozważmy dwa oddzielne przypadki.\bigskip\\
+\bigskip
+Przypadek 1: $Z_L1 = 3+0 \jmath$\\
+\bigskip
+Przypadek 2: $Z_L2 = 1,5+0,5 \jmath$\\
+Dla każdego z przypadków proszę wyznaczyć:\\
+1) moc pozorną i czynną wydzielaną w obciążeniu,\\
+2) moc pozorną i czynną wydzielaną (traconą) w rezystancji wewnętrznej źródła.
+
+%\begin{align}
+%Z_w=2+2 \jmath \\
+%C = 5 \farad \\
+%R = 10 \ohm \\
+%j(t) = 2 sin(t)
+%\end{align}
+
+%\begin{schemat} \draw
+%(0,0)  to [Z,l=$Z_w$] (0,2)
+%       to [short,-o] (2,2)
+%       to [Z,l=$Z_1$] (4,2)
+%       to [short] (5,2)
+%       to [C,l=$C$] (5,0)
+%       to [short,-o] (2,0)
+%       to [short] (0,0)
+%(1,0)  to [Isrc,l_=$j(t)$] (1,2)
+%(4,0)  to [R,l=$R$] (4,2)
+%;\end{schemat}
+
+\begin{schemat} \draw
+(0,0)  to [Vsrc,l=$u(t)$] (0,2)
+	to [R,l=$R_S$] (2,2)
+	to [short,-o] (3,2)
+	to [short] (4,2)
+	to [R,l=$Z_L$] (4,0)
+	to [short,-o] (3,0)
+	to [short] (0,0)
+	;\end{schemat}
+
+\subsubsection{Rozwiązanie}
+%TBD
+
+Wiemy, że moc pozorna wydzielana w dowolnym elemencie określana jest wzorem 
+\begin{align}
+\label{klima_S:1}
+S=\underline{I_{sk}} \cdot \underline{U_{sk}}^*
+\end{align} 
+natomiast moc czynna jest częścią rzeczywistą mocy pozornej
+\begin{align}
+\label{klima_P:1}
+P=\Re{(S)}=\Re{(\underline{I_{sk}} \cdot \underline{U_{sk}}^*)}
+\end{align} 
+gdzie $\underline{I_{sk}}$ to zespolona wartość skuteczna prądu, a $\underline{U_{sk}}^*$ to sprzężona wartość zespolonej wartości skutecznej napięcia.
+Wiadomo również, że dla elementu o impedancji $Z$ słuszna jest zależność
+\begin{align}
+\label{klima_usk:1}
+\underline{U_{sk}} = \underline{I_{sk}} \cdot Z
+\end{align}
+gdzie $Z$ to impedancja elementu.\\
+Wyznaczmy zatem wartość skuteczną prądu płynącego w obwodzie $\underline{I_{sk}}$, według poniższego schematu. 
+\begin{schemat} \draw
+	(0,0)  to [Vsrc,l=$u(t)$] (0,2)
+	to [R,l=$R_S$] (2,2)
+	to [short,-o] (3,2)
+	to [short] (4,2)
+	to [R,l=$Z_L$] (4,0)
+	to [short,-o] (3,0)
+	to [short] (0,0);
+	\draw[thick, rounded corners=12pt, ->, red]
+	(0.3,0.3) -- (0.3,1.7) -- (3.7,1.7) -- (3.7,0.3) -- (3.1,0.3) node[anchor=south] {$\underline {I_{sk}}$};
+	\draw[thick, rounded corners=12pt, ->, blue]
+	(-0.3,0.3) -- (-0.3,1.7) node[anchor=east] {$\underline {U_{sk}}$};
+	\draw[thick, rounded corners=12pt, ->, blue]
+	(1.7,2.8) -- (0.3,2.8) node[anchor=south] {$\underline {U_{Ssk}}$};
+	\draw[thick, rounded corners=12pt, ->, blue]
+	(4.8,0.3) -- (4.8,1.7) node[anchor=west] {$\underline {U_{Lsk}}$};
+	\end{schemat}
+
+Zgodnie z napięciowym prawem Kirchoffa, $\underline{I_{sk}}$ będzie wynosił:
+\begin{align}
+\underline{I_{sk}}=\frac {\underline{U_{sk}} }{R_S + Z_L}
+\end{align}
+Przebieg napięcia jest określony jako sinusoidalny o amplitudzie 10V, zatem $\underline{U_{sk}}$ wynosi $\frac{10}{\sqrt{2}}$V.
+Podstawiając wartości $R_s$ oraz $Z_L$ otrzymujemy kolejno wartości skuteczne prądu dla obu przypadków:
+\begin{align}
+\underline{I_{sk1}}=\frac{\frac{10}{\sqrt{2}} \:V}{(2+3+0 \jmath) \: \ohm}=\frac{2}{\sqrt{2}} \: A\approx 1,4142 \: A\\
+\underline{I_{sk2}}=\frac{\frac{10}{\sqrt{2}} \:V}{(2+1,5+0,5 \jmath)  \:\ohm}=\frac{\frac{10}{\sqrt{2}} \:V}{(3,5+0,5 \jmath) \ohm}\approx (1,9799 - 0,2828 \jmath) \: A
+\end{align}
+Teraz możemy skorzystać z zależności \eqref{klima_usk:1} i wyznaczyć napięcia skuteczne występujące na obciążeniu
+\begin{align}
+\underline{U_{Lsk1}}=1,4142 \: A\cdot (3+0 \jmath)\ohm = 4,2426 \: V\\
+\underline{U_{Lsk2}}=(1,9799 - 0,2828 \jmath) \: A \cdot (1,5+0,5 \jmath) \:\ohm = (3,1113 + 0,5657 \jmath) \: V
+\end{align}
+aby w końcu wyznaczyć, zgodnie ze wzorem \eqref{klima_S:1} wartości mocy pozornej na odbiorniku
+\begin{align}
+S_{L1} = 1,4142 \: A \cdot 4,2426 \: V \approx 6 \: VA
+\end{align}
+\begin{multline}
+S_{L2} = (1,9799 - 0,2828 \jmath) \: A\cdot (3,1113 + 0,5657 \jmath)^* \: V=\\=(1,9799 - 0,2828 \jmath) \: A \cdot (3,1113 - 0,5657 \jmath) \: V \approx (6-2 \jmath) \: VA
+\end{multline}
+i zgodnie z \eqref{klima_P:1} wartość mocy czynnej wydzielanej na odbiorniku
+\begin{align}
+\label{klima_wynikPL:1}
+P_{L1} = 6 W\\
+\label{klima_wynikPL:2}
+P_{L2} = 6 W
+\end{align}
+Następnie możemy wyznaczyć napięcie skuteczne na rezystancji wewnętrznej źródła:
+\begin{align}
+\underline{U_{Ssk1}}=1,4142 \: A\cdot (2+0 \jmath) \:\ohm = 2,8284 \: V\\
+\underline{U_{Ssk2}}=(1,9799 - 0,2828 \jmath) \: A\cdot (2+0 \jmath) \:\ohm = (3,9598 - 0,5656 \jmath)  \:V
+\end{align}
+oraz ostatecznie moc pozorną:
+\begin{align}
+S_{S1} = 1,4142 \: A\cdot  2,8284 \: V = 4  \:VA \;
+\end{align}
+\begin{multline}
+S_{S2} =  (1,9799 - 0,2828 \jmath) \: A\cdot (3,9598 - 0,5656 \jmath)^* \: V = \\=(1,9799 - 0,2828 \jmath) \: A\cdot (3,9598 + 0,5656 \jmath) \: V = 8 \: VA
+\end{multline}
+i moc czynną wydzielaną na rezystancji wewnętrznej źródła:
+\begin{align}
+\label{klima_wynikPS:1}
+P_{S1} = 4 W\\
+\label{klima_wynikPS:2}
+P_{S2} = 8 W
+\end{align}
+Porównanie wyników uzyskanych dla dwóch powyższych przypadków pozwala zauważyć, że moc czynna dostarczana do odbiornika jest w obu przypadkach taka sama \eqref{klima_wynikPL:1}, \eqref{klima_wynikPL:2}, jednak moc czynna tracona w rezystancji wewnętrznej źródła jest dwukrotnie większa dla drugiego przypadku \eqref{klima_wynikPS:2} niż dla pierwszego przypadku \eqref{klima_wynikPS:1} Sprawność przekazywania energii do obciążenia jest zatem mniejsza dla układu, w którym obciążenie charakteryzuje się niezerową wartością reaktancji.
+\end{task}

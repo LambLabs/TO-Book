@@ -1,0 +1,155 @@
+\begin{task}
+Proszę wyznaczyć wartość mocy wydzielanej w rezystorze $R_1$ i $R_2$ w układzie pokazanym poniżej.
+\begin{schemat} \draw
+	(0,0)  to [Vsrc,l=$5$] (0,2)
+	to [R,l=$R_1$, i=$I_A$,-*] (2,2)
+	to [R,l=$R_2$,-*] (2,0)
+	to [short] (0,0)
+(2,4)	to [cVsrc,l=$20 \cdot I_A$] (2,2)
+(2,4)	to [short] (4,4)
+	to [R,l=$R_3$] (4,0)
+	to [short] (0,0)
+	;\end{schemat}
+Wartości elementów wynoszą: $R_1=560 \ohm$, $R_2=110\ohm$, $R_3=240\ohm$.
+\subsubsection{Rozwiązanie}
+
+Wyznaczmy, metodą prądów oczkowych, prądy w układzie:
+\begin{schemat} \draw
+	(0,0)  to [Vsrc,l=$5$] (0,2)
+	to [R,l=$R_1$, i=$I_A$,-*] (2,2)
+	to [R,l=$R_2$,i=$I_{R2}$,-*] (2,0)
+	to [short] (0,0)
+	(2,4)	to [cVsrc,l=$20 \cdot I_A$] (2,2)
+	(2,4)	to [short] (4,4)
+	to [R,l=$R_3$] (4,0)
+	to [short] (0,0);
+	\draw[thick, rounded corners=12pt, ->, red]
+	(0.3,0.3) -- (0.3,1.7) -- (1.7,1.7) -- (1.7,0.3) -- (1.1,0.3) node[anchor=south] {${I_{I}}$};
+	\draw[thick, rounded corners=12pt, ->, red]
+	(2.3,0.3) -- (2.3,3.7) -- (3.7,3.7) -- (3.7,0.3) -- (3.1,0.3) node[anchor=south] {${I_{II}}$};
+	\draw[thick, rounded corners=12pt, ->, blue]
+	(2.8,0.3) -- (2.8,1.7) node[anchor=west] {${U_{R2}}$};
+	\draw[thick, rounded corners=12pt, ->, blue]
+	(1.6,2.8) -- (0.3,2.8) node[anchor=north] {${U_{R1}}$};
+	\end{schemat}
+\begin{align}
+\left[ \begin{array}{cc}
+560+110 & -110\\
+-110 & 240+110
+\end{array} \right] \cdot 
+\left[ \begin{array}{c}
+I_I\\
+I_{II}
+\end{array} \right] = 
+\left[ \begin{array}{c}
+5\\
+-20 \cdot I_A
+\end{array} \right]
+\end{align}
+Przyglądając się układowi, zauważyć można, że $I_A=I_I$, zatem ostatecznie możemy przekształcić równanie macierzowe do postaci:
+\begin{align}
+\left[ \begin{array}{cc}
+670 & -110\\
+-110 & 350
+\end{array} \right] \cdot 
+\left[ \begin{array}{c}
+I_I\\
+I_{II}
+\end{array} \right] = 
+\left[ \begin{array}{c}
+5\\
+-20 \cdot I_I
+\end{array} \right]\\
+\left[ \begin{array}{cc}
+670 & -110\\
+-110 +20 & 350
+\end{array} \right] \cdot 
+\left[ \begin{array}{c}
+I_I\\
+I_{II}
+\end{array} \right] = 
+\left[ \begin{array}{c}
+5\\
+0
+\end{array} \right]\\
+\left[ \begin{array}{cc}
+670 & -110\\
+-90 & 350
+\end{array} \right] \cdot 
+\left[ \begin{array}{c}
+I_I\\
+I_{II}
+\end{array} \right] = 
+\left[ \begin{array}{c}
+5\\
+0
+\end{array} \right]
+\end{align}
+Rozwiązując układ otrzymujemy
+\begin{align}
+\left[ \begin{array}{cc}
+670 & -110\\
+-90 & 350
+\end{array} \right]^{-1} \cdot 
+\left[ \begin{array}{cc}
+670 & -110\\
+-90 & 350
+\end{array} \right] \cdot 
+\left[ \begin{array}{c}
+I_I\\
+I_{II}
+\end{array} \right] = 
+\left[ \begin{array}{cc}
+670 & -110\\
+-90 & 350
+\end{array} \right]^{-1} \cdot 
+\left[ \begin{array}{c}
+5\\
+0
+\end{array} \right]\\
+\frac{1}{1000}\cdot \left[ \begin{array}{cc}
+1,5583 & 0,4898\\
+0,4007 & 2,9831
+\end{array} \right] \cdot 
+\left[ \begin{array}{cc}
+670 & -110\\
+-90 & 350
+\end{array} \right] \cdot 
+\left[ \begin{array}{c}
+I_I\\
+I_{II}
+\end{array} \right] = 
+\frac{1}{1000}\cdot \left[ \begin{array}{cc}
+1,5583 & 0,4898\\
+0,4007 & 2,9831
+\end{array} \right] \cdot 
+\left[ \begin{array}{c}
+5\\
+0
+\end{array} \right]\\
+\left[ \begin{array}{cc}
+1 & 0\\
+0 & 1
+\end{array} \right] \cdot 
+\left[ \begin{array}{c}
+I_I\\
+I_{II}
+\end{array} \right] = 
+\frac{1}{1000}\cdot  
+\left[ \begin{array}{c}
+7,7916\\
+2,0036
+\end{array} \right]
+\end{align}
+Zatem prąd $I_I=7,79 \: mA$, natomiast prąd $I_{II}=2 \: mA$. Możemy teraz wyznaczyć wartość mocy wydzielającej się na rezystorze $R_1$. Wiadomo, że dla prądu stałego, moc wydzielana na elemencie jest równa iloczynowi wartości prądu płynącego przez element i wartości napięcia na tym elemencie. Prąd płynący przez rezystor $R_1$ to ten sam prąd, który jest na schemacie oznaczony jako $I_A$. Zatem $I_{R1}=I_A=I_I=7,79 \: mA$.
+\begin{align}
+P_{R1} = I_{R1} \cdot U_{R1} = I_I \cdot ( I_I \cdot R_1) = 33,98mW
+\end{align}
+Na rezystorze $R_1$ wydziela się moc około 34mW.
+
+Z kolei dla rezystora $R_2$ mamy:
+\begin{align}
+P_{R2} = I_{R2} \cdot U_{R2} = (I_I-I_{II}) \cdot ( (I_I-I_{II}) \cdot R_2) = 3,69mW
+\end{align}
+Na rezystorze $R_2$ wydziela się moc około 3,7mW.
+\end{task}
