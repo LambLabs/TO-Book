@@ -37,13 +37,13 @@ I_1-I_2-I_3-I_4+I_5=0
 \ctikzset{voltage/european label distance=2.00}  
 %\ctikzset{voltage/distance from node=.1}
 \draw
- (-2,0) to[R,l_=$R_2$,i>_=$I_2$,v^=$U_2$] (2,0) 
-       to[R,l_=$R_3$,v^=$U_3$]  (2,-2)  
+ (-2,0) to[R,l_=$R_2$,i>_=$I_2$,v^<=$U_2$] (2,0) 
+       to[R,l_=$R_3$,v^<=$U_3$]  (2,-2)  
        to[american current source,l_=$E_3$] (2,-3)  
        to[short,i>_=$I_3$] (2,-4)
        to[american current source,l_=$E_4$] (0,-4)  
-       to[R,l_=$R_4$,v^>=$U_4$]  (-2,-4)
-       to[R,l_=$R_1$,i<_=$I_1$,v^>=$U_1$]  (-2,0)  ;
+       to[R,l_=$R_4$,i>_=$I_4$,v^<=$U_4$]  (-2,-4)
+       to[R,l_=$R_1$,i>_=$I_1$,v^<=$U_1$]  (-2,0)  ;
 \draw[->] (-1,-2) arc (180:-135:1cm) 
 ;
 \end{circuitikz}
@@ -55,10 +55,10 @@ W każdym obwodzie zamkniętym suma spadków napięć na poszczególnych element
 \sum_{i}U_i=0
 \end{equation}
 
-Należy założyć sobie kierunek obiegu obwodu. Napięcia zgodne z kierunkiem obiegu obwodu mają znak dodatki, napięcia przeciwne z kierunkiem obiegu obwodu mają znak ujemny. 
+Należy założyć sobie kierunek obiegu obwodu. Napięcia o kierunku zgodnym z kierunkiem obiegu obwodu mają znak dodatni, napięcia o przeciwnym kierunku do kierunku obiegu obwodu mają znak ujemny. 
 
 \begin{equation}
-U_1-U_2-U_3+E_3+E_4+U_4=0
+-U_1-U_2-U_3+E_3+E_4-U_4=0
 \end{equation}
 
 \section{Zadania}

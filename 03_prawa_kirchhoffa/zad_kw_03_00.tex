@@ -12,5 +12,73 @@ Wyznacz spadek napięcia na rezystorze $R_1$
 \end{circuitikz}
 \end{center}
 \subsubsection{Rozwiązanie}
-TBD
+Pokazany układ możemy uprościć poprzez szeregowe połączenie rezystorów $R_1$ i $R_2$. Rezystor zastępczy będzie miał rezystancję $R_z = R_1+R_2$.
+
+\begin{center}\begin{circuitikz}[european] 
+		\ctikzset{voltage/distance from line=0.2} 
+		\ctikzset{voltage/european label distance=2.00}  
+		\draw
+		(0,0) to[short] (2,0) 
+		to[R,l=$R_z$] (2,-2)
+		to[short] (0,-2)
+		to[american current source,l=$E$] (0,0) 
+		;
+	\end{circuitikz}
+\end{center}
+
+Wiemy też, że w takim uproszczonym układzie będzie płynął prąd $I_1$, jak to pokazano na schemacie poniżej. 
+
+\begin{center}\begin{circuitikz}[european] 
+		\ctikzset{voltage/distance from line=0.2} 
+		\ctikzset{voltage/european label distance=2.00}  
+		\draw
+		(0,0) to[short, i>_=$I_1$] (2,0) 
+		to[R,l=$R_z$] (2,-2)
+		to[short] (0,-2)
+		to[american current source,l=$E$, i>_=$I_1$] (0,0) 
+		;
+	\end{circuitikz}
+\end{center}
+
+Wartość prądu wyznaczymy łatwo ze wzoru 
+\begin{align*}
+I_1=\frac{E}{R_z}
+\end{align*}
+
+Ze względu na to, że jeśli zamieniamy część układu na jego postać zastępczą, to nie zmieniają się prądy i napięcia w pozostałej części układu, wiemy, że prąd $I_1$, płynący też przez \'zródło będzie miał taką samą wartość w oryginalnym układzie:
+\begin{center}\begin{circuitikz}[european] 
+		\ctikzset{voltage/distance from line=0.2} 
+		\ctikzset{voltage/european label distance=2.00}  
+		\draw
+		(0,0) to[R,l=$R_1$] (2,0) 
+		to[R,l=$R_2$] (2,-2)
+		to[short] (0,-2)
+		to[american current source,l=$E$, i>_=$I_1$] (0,0) 
+		;
+	\end{circuitikz}
+\end{center}
+
+Przepływ prądu $I_1$ wywoła na rezystorach $R_1$ i $R_2$ spadki napięcia, odpowiednio 
+\begin{align*}
+U_1={I_1} \cdot {R_1}\\
+U_2={I_1} \cdot {R_2}
+\end{align*}
+
+\begin{center}\begin{circuitikz}[european] 
+		\ctikzset{voltage/distance from line=0.2} 
+		\ctikzset{voltage/european label distance=2.00}  
+		\draw
+		(0,0) to[R,l=$R_1$, i>_=$I_1$,v^<=$U_1$] (2,0) 
+		to[R,l=$R_2$, i>_=$I_1$,v^<=$U_2$] (2,-2)
+		to[short] (0,-2)
+		to[american current source,l=$E$, i>_=$I_1$] (0,0) 
+		;
+	\end{circuitikz}
+\end{center}
+
+Zatem ostatecznie napięcie na rezystorze $R_1$ wyniesie, po podstawieniu wcześniej wyznaczonych $I_1$ i $R_z$:
+\begin{align*}
+U_1=\frac{E}{R_1+R_2} \cdot {R_1} = E \cdot \frac{R_1}{R_1+R_2}
+\end{align*}
+Otrzymany wzór jest bardzo często określany jako wzór na wyjściowe napięcie dzielnika napięciowego zbudowanego z rezystorów $R_1$ i $R_2$ i warto go zapamiętać.
 \end{task}
